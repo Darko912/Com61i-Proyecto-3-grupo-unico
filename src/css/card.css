@@ -1,0 +1,41 @@
+.customCard {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    margin: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .customCard:hover {
+    transform: scale(1.1);
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+
+  .card-image {
+    width: 100%;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .customCard:hover .overlay {
+    opacity: 1;
+  }
+  

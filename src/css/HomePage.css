@@ -1,0 +1,15 @@
+.card-container {
+    display: flex;
+  }
+  
+  .MasDeNosotros {
+    background-color: #000;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
