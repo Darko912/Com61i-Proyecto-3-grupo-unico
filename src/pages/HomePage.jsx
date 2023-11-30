@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import Card from '../assets/card'; // Import the Card component
 import "../css/HomePage.css"
+import CarouselComponent from '../assets/carousel';
 
 
 const HomePage = () => {
@@ -15,6 +16,11 @@ const HomePage = () => {
         </Nav>
       </Navbar>
 
+      <div id="carousel" className="carouselContainer">
+        {/* Integrate the CarouselComponent */}
+        <CarouselComponent />
+      </div>
+
       <div id="cards" className="card-container">
         <Card title="Card 1" description="Description for Card 1" />
         <Card title="Card 2" description="Description for Card 2" />
@@ -27,9 +33,20 @@ const HomePage = () => {
         <Card title="Card 9" description="Description for Card 9" />
       </div>
 
+      <button>Ver Menu Completo</button>
+
       <div id="MasDeNosotros" className="MasDeNosotros">
         <h2>Section que no se que poner XD</h2>
         <p>mas Info iria aqui.. nose.</p>
+      </div>
+
+      <div>
+        <h1 className='text-center'>Nuestros Sponsors</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur tempora quisquam, natus praesentium, provident harum amet ut nesciunt autem itaque dolorum quod, quasi doloremque doloribus. Velit perspiciatis provident eligendi neque.</p>
+        <Card title="Card 9" description="Description for Card 9" />
+        <Card title="Card 9" description="Description for Card 9" />
+        <Card title="Card 9" description="Description for Card 9" />
+        <Card title="Card 9" description="Description for Card 9" />
       </div>
     </div>
   );
