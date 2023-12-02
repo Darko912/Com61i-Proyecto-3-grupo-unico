@@ -17,7 +17,6 @@ const HomePage = () => {
       </Navbar>
 
       <div id="carousel" className="carouselContainer">
-        {/* Integrate the CarouselComponent */}
         <CarouselComponent />
       </div>
 

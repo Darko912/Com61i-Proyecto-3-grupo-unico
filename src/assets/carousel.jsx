@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import '../css/carousel.css'; // Create this file for styling
+import '../css/carousel.css'; 
 
 const CarouselComponent = () => {
   return (
@@ -12,8 +12,8 @@ const CarouselComponent = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First Slide</h3>
-          <p>Some text here...</p>
+          <h3>primer slide</h3>
+          <p>Textito</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -23,11 +23,10 @@ const CarouselComponent = () => {
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h3>Second Slide</h3>
-          <p>More text for the second slide.</p>
+          <h3>Segundo lorem</h3>
+          <p>Mas texto aqui</p>
         </Carousel.Caption>
       </Carousel.Item>
-      {/* Add more Carousel.Items as needed */}
     </Carousel>
   );
 };
