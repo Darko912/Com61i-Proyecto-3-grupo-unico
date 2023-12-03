@@ -27,8 +27,8 @@ const HomePage = () => {
       <CustomCard cards={Cards} />
 
       <div id="MasDeNosotros" className="MasDeNosotros">
-        <h2>Section que no se que poner XD</h2>
-        <p>mas Info iria aqui.. nose.</p>
+        <h2>Historia del Establecimiento</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quia perspiciatis laborum hic voluptas expedita cumque molestiae facere quae, delectus ratione, doloremque, voluptatum veniam voluptate odit officiis? Minima, mollitia sequi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quas recusandae, voluptate aliquam a facilis. Eum expedita labore quaerat officiis officia aliquid eligendi quos nemo odio quis, quam, omnis vitae?</p>
       </div>
 
       <div>
