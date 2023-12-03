@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card as BootstrapCard, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import '../css/card.css';
+import '../card/card.css';
 
 const CustomCard = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,15 +16,15 @@ const CustomCard = ({ cards }) => {
 
   const handleCardClick = (title, description) => {
     Swal.fire({
-      title: 'Confirm Order',
-      text: `Do you want to order ${title}?`,
+      title: 'Confirmar Orden',
+      text: `Quieres Pedir ${title}?`,
       icon: 'question',
       showCancelButton: true,
-      confirmButtonText: 'Yes, order it!',
-      cancelButtonText: 'No, cancel',
+      confirmButtonText: 'Si, Ordenalo!',
+      cancelButtonText: 'No, cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Order Confirmed!', 'Your order has been placed.', 'success');
+        Swal.fire('Order Confirmada!', 'Tu Orden fue Confirmada.', 'success');
         // You can add further logic for handling the order confirmation here
       }
     });

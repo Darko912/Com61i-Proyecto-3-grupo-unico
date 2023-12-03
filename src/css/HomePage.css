@@ -1,12 +1,17 @@
-.card-container {
-    display: flex;
-  }
-  
   .MasDeNosotros {
     background-color: #000;
-    color: #fff;
     padding: 50px;
     text-align: center;
+  }
+
+  body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/restaurant-background-2ez77umko2vj5w02.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
   
   html {

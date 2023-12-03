@@ -24,6 +24,21 @@ const Cards = [
     description: 'Custom Description 5',
     image: 'https://picsum.photos/id/1045/200/300',
   },
+  {
+    title: 'Custom Title 6',
+    description: 'Custom Description 5',
+    image: 'https://picsum.photos/id/1045/200/300',
+  },
+  {
+    title: 'Custom Title 7',
+    description: 'Custom Description 5',
+    image: 'https://picsum.photos/id/1045/200/300',
+  },
+  {
+    title: 'Custom Title 8',
+    description: 'Custom Description 5',
+    image: 'https://picsum.photos/id/1045/200/300',
+  },
 ];
 
 export default Cards;

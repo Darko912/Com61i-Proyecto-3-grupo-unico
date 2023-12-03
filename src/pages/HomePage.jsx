@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import CustomCard from '../assets/card'; 
-import Cards from "../assets/cardData";
+import CustomCard from '../components/card/card'; 
+import Cards from "../components/card/cardData";
 import "../css/HomePage.css"
-import CarouselComponent from '../assets/carousel';
+import CarouselComponent from '../components/carousel/carousel';
 
 const HomePage = () => {
   
