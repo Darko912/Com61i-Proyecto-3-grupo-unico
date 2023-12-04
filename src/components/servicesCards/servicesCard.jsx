@@ -18,13 +18,18 @@ const Secciondeservicios = () => {
       description: 'Description for Service 3',
       image: 'https://picsum.photos/id/1035/200/300', 
     },
+    {
+      title: 'Gente',
+      description: 'Description for Service 4',
+      image: 'https://picsum.photos/id/1035/200/300', 
+    },
   ];
 
   return (
     <div className="container">
       <div className="row">
         {services.map((service, index) => (
-          <div key={index} className="col-md-4 mb-3">
+          <div key={index} className="col-md-4 m-md-5">
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={service.image} className="card-image" />
               <Card.Body>

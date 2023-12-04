@@ -11,10 +11,6 @@ const CarouselComponent = () => {
           src="https://picsum.photos/800/400?random=1"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>primer slide</h3>
-          <p>Textito</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -22,10 +18,6 @@ const CarouselComponent = () => {
           src="https://picsum.photos/800/400?random=2"
           alt="Second slide"
         />
-        <Carousel.Caption>
-          <h3>Segundo lorem</h3>
-          <p>Mas texto aqui</p>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );

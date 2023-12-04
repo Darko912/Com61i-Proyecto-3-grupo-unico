@@ -40,16 +40,15 @@ const HomePage = () => {
 
       <div id="MasDeNosotros" className="MasDeNosotros">
         <h2>Historia del Establecimiento</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quia perspiciatis laborum hic voluptas expedita cumque molestiae facere quae, delectus ratione, doloremque, voluptatum veniam voluptate odit officiis? Minima, mollitia sequi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quas recusandae, voluptate aliquam a facilis. Eum expedita labore quaerat officiis officia aliquid eligendi quos nemo odio quis, quam, omnis vitae?</p>
+        <p>En 1892, nació "La Curva del Sabor" un acogedor rincón que se convertiría en el epicentro de la fusión italo-germana-Argenta. Desde el dia de su fundacion y gracias a los esfuerzos y cambios de epocas este restaurante lleva Años y años pasando la antorcha a las generaciones nuevas sobre cocina. este restaurante incorporó la precisión alemana y la innovación en la mezcla.</p>
         <Container>
+        <h1>Nuestro Staff esta comprometido por estas personas</h1>
        <Cardgrouprating/>
        </Container>
       </div>
 
       <div>
         <h2 className='text-center'>Nuestro Servicio Incluye:</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, illo quia. Rerum deleniti nihil quaerat labore consequatur neque inventore dicta, consequuntur ducimus sit eos quas, harum molestiae praesentium repellendus tempore?
-        Perferendis laboriosam consequatur ullam quam facere incidunt nisi nulla molestias neque aliquid, alias, suscipit veniam sed adipisci illo facilis veritatis deleniti modi eum nihil nam. Nihil, aperiam quidem! Suscipit, soluta!</p>
       </div>
       <Secciondeservicios/>
     </div>
