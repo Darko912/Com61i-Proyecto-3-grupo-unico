@@ -11,8 +11,8 @@ export const endPoints = {
   
   export const endPointUsers = {
     register: "/users",
-    login: "/login",
-    getUser: "/users/get-user-by-id",
+    login: "/api/login",
+    getUser: "/api/users/getById",
     uploadAvatar: "/users/upload-avatar"
   };
   
@@ -20,15 +20,15 @@ export const endPoints = {
   
     //Users
   
-    getAllUsers: "/users/get-users",
-    editUser: "/users/edit-user",
-    disableUser: "/users/disable-user",
-    ableUser: "/users/unban-user",
-    adminUser: "/users/user-admin",
-    clientUser: "/users/user-client",
-    getAdminUsers: "/users/get-admin-users",
-    getBannedUsers: "/users/get-banned-users",
-    getActiveUsers: "/users/get-active-users",
+    getAllUsers: "/api/users/get-users",
+    editUser: "/api/users/edit-user",
+    disableUser: "/api/users/disable-user",
+    ableUser: "/api/users/unban-user",
+    adminUser: "/api/users/user-admin",
+    clientUser: "/api/users/user-client",
+    getAdminUsers: "/api/users/get-admin-users",
+    getBannedUsers: "/api/users/get-banned-users",
+    getActiveUsers: "/api/users/get-active-users",
   
     // Products
   

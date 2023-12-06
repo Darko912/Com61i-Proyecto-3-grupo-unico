@@ -8,6 +8,14 @@ export const AuthReducer = (state={}, action) => {
                 isLoading: false,
                 errorMsg: ''
             }
+            case 'LOGOUT': 
+            return {
+                ...state,
+                user: action.payload.user,
+                isLogged: true,
+                isLoading: false,
+                errorMsg: ''
+            }
             case 'ERROR': 
             return {
                 ...state,

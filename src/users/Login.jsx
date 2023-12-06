@@ -6,6 +6,7 @@ import { validationsFields } from "../utils/validations";
 import { AuthContext } from "../context/AuthContext";
 import './styles/login.css';
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 
 const Login = () => {

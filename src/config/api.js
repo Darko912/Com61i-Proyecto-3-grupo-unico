@@ -72,3 +72,14 @@ export const getOneUser = async (token, id) => {
   }
 };
 
+export const getAllusers = async (token) => {
+  try {
+    return await axios.get(`${DBURL}${endPointAdmin.getAllUsers}`, {
+      headers: {
+        "access-token": token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

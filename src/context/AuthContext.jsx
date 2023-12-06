@@ -18,22 +18,18 @@ const initState = {
 export const AuthProvider = ({ children }) => {
 
   const [token, setToken] = useState(() => window.localStorage.getItem('token' || null));
-  const [updatedUser, setUpdatedUser] = useState(false);
-  const [state, dispatch] = useReducer(AuthReducer, initState);
+  const [state, dispatch] = useReducer(AuthReducer, (localStorage.getItem('authState') && JSON.parse(localStorage.getItem('authState'))) || initState);
 
-
-  const handleUpdateUser = () => {
-    return setUpdatedUser(true);
-  };
 
    useEffect(() => {
      window.localStorage.setItem('token', token)
    }, [token])
    
     const login = async(email, password) => {
-        
+
+   
        try {
-         const user = await axiosClient.post('/login', {
+         const user = await axiosClient.post('/api/login', {
              email,
              password
          });
@@ -57,9 +53,14 @@ export const AuthProvider = ({ children }) => {
        
     }
 
+    useEffect(() => {
+      localStorage.setItem('authState', JSON.stringify(state))
+    },[state]);
+
+
 
   return (
-    <AuthContext.Provider value={{token, setToken, handleUpdateUser, updatedUser, state, login}}>
+    <AuthContext.Provider value={{token, setToken, state, login}}>
       {children}
     </AuthContext.Provider>
   )

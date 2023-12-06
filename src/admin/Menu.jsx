@@ -1,15 +1,13 @@
 import  { useContext, useState } from "react";
 import "./styles/menu.css";
 import { Button, Col, Row } from "react-bootstrap";
-import { AuthContext } from "../context/AuthContext";
 import { useAuth } from "../hooks/useAuth";
+import { AuthContext } from "../context/AuthContext";
 
 
 const Panel = () => {
-  const { state } = useContext(AuthContext);
 
   const {actualUser} = useAuth();
-  console.log(actualUser);
 
   const [panel, setPanel] = useState(1);
 
@@ -29,6 +27,7 @@ const Panel = () => {
                     />
                     <h1>{actualUser?.name}</h1>
                     <p>{actualUser?.role}</p>
+                    <p>{actualUser?.email}</p>
                   </div>
                 )}
               </div>
@@ -57,7 +56,7 @@ const Panel = () => {
       </div>
       <div className="container-fluid mb-5">
         <Col className="panel-col">
-          <h1>PANEL xd</h1>
+          <p>useState para setPanel</p>
         </Col>
       </div>
     </>

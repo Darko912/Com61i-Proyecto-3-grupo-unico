@@ -1,0 +1,86 @@
+.btnEdit, .btnDelete, .btnAble {
+    --bs-btn-bg: none;
+    --bs-btn-border-width: 0px
+  }
+  
+  .panel {
+    background-color: #222;
+    max-height: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    align-content: center;
+    flex: content;
+    right: 0;
+    color: white;
+  }
+  
+  
+  .custom-table tbody tr td {
+    text-align: center;
+  }
+  
+  .custom-table p{
+    margin-top: 1rem;
+  }
+  
+  
+  .t-body {
+    overflow-y: auto;
+    max-height: inherit;
+  }
+  
+  
+  .table-container {
+    position: relative;
+    overflow-x: hidden;
+    max-height: 700px;
+  }
+  .table-container Table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    height: 30px;
+  }
+  
+  .table-container thead::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    border-bottom: 5px solid black;
+  }
+  
+  
+  .list-tittle {
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+  
+  
+  
+  .avatar {
+    width: 120px;
+    height: 110px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .user {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .panel-col {
+    width: 100%;
+  }
+  
