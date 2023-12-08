@@ -8,14 +8,14 @@ const CarouselComponent = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://picsum.photos/800/400?random=1"
+          src="https://picsum.photos/800/600"
           alt="First slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://picsum.photos/800/400?random=2"
+          src="https://picsum.photos/800/600"
           alt="Second slide"
         />
       </Carousel.Item>

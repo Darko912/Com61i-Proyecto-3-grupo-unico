@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const Cardgrouprating = () => {
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <Col>
           <Customratingcard title="(nombre)" content="(explicacion)" />

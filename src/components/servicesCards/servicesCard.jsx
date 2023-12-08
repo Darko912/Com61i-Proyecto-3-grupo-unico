@@ -26,7 +26,7 @@ const Secciondeservicios = () => {
     <div className="container">
       <div className="row d-flex justify-content-center">
         {services.map((service, index) => (
-          <div key={index} className="col-12 col-md-4 col-lg-3 m-md-4">
+          <div key={index} className="col-md-5 col-lg-3 mb-3 m-md-3">
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={service.image} className="card-image" />
               <Card.Body>
