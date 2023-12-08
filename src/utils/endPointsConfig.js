@@ -1,6 +1,6 @@
 export const endPoints = {
     login: '/api/login',
-    register: '/users/create-user',
+    register: '/api/users/create',
     createProduct: '/api/products/create'
   };
   
