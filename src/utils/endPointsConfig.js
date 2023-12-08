@@ -1,12 +1,12 @@
 export const endPoints = {
     login: '/api/login',
     register: '/users/create-user',
-    createProduct: '/prod/create-product'
+    createProduct: '/api/products/create'
   };
   
   export const productEndpoints = {
-    uploadImage: '/prod/upload-img',
-    uploadIcon: '/prod/upload-icon',
+    uploadImage: '/api/products/upload-img',
+    uploadIcon: '/api/products/upload-icon',
   }
   
   export const endPointUsers = {

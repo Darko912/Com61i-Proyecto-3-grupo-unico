@@ -5,11 +5,9 @@ import { useAuth } from "../hooks/useAuth";
 import { AuthContext } from "../context/AuthContext";
 
 
-const Panel = () => {
+const Panel = ({setPanel}) => {
 
   const {actualUser} = useAuth();
-
-  const [panel, setPanel] = useState(1);
 
   return (
     <>
