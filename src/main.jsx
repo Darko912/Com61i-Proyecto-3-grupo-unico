@@ -9,20 +9,22 @@ import RegisterPage from './pages/RegisterPage.jsx';
 import Admin from './admin/Admin.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import Login from './users/Login.jsx';
-
+import { SnackbarProvider } from 'notistack';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider> 
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage/>}/>
-          <Route path='*' element={<ErrorPage/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<RegisterPage/>}/>
-          <Route path='/admin' element={<Admin/>}/>
-        </Routes>
-      </BrowserRouter>
+    <AuthProvider>
+      <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/register' element={<RegisterPage/>}/>
+            <Route path='/admin' element={<Admin/>}/>
+          </Routes>
+        </BrowserRouter>
+      </SnackbarProvider> 
     </AuthProvider>
   </React.StrictMode>
 )

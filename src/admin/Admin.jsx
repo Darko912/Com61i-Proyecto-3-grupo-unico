@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap'
 import './styles/menu.css'
 import UsersDatatable from './lists/UsersDatatable'
 import CreateProduct from './CreateProduct'
+import AllProdDatatable from './lists/ProductsDatatable'
 
 const Admin = () => {
 
@@ -17,6 +18,7 @@ const Admin = () => {
     </div>
     <div>
       {panel === 1 && <UsersDatatable /> }
+      {panel === 2 && <AllProdDatatable />}
       {panel === 3 && <CreateProduct />}
     
     

@@ -6,7 +6,7 @@ import { endPoints } from "../utils/endPointsConfig";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ageValidator, validationsFields } from "../utils/validations";
-import { Form, Col, Row, Button, Card, Image } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import './styles/register.css'
 
 
@@ -28,7 +28,6 @@ const RegisterPage = () => {
     lastname: "",
     age: "",
   });
-
 
   const onSend = async () => {
    
@@ -231,7 +230,7 @@ const RegisterPage = () => {
                 Repetir contraseña
               </label>
               <input
-                type="password"
+                type='password'
                 className="form-control"
                 id="exampleInputPassword2"
                 name="password2"

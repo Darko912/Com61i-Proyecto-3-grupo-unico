@@ -32,17 +32,17 @@ export const endPoints = {
   
     // Products
   
-    getProd: "/prod/get-products",
-    getDisabledProd: "/prod/get-disabled-products",
-    editProd: "/prod/edit-product",
-    spotlightProd: "/prod/spotlight-product",
-    unSpotlightProd: "/prod/unspotlight-product",
-    offerProd: "/prod/offer-product",
-    unOfferProd: "/prod/unoffer-product",
-    disableProd: "/prod/disable-product",
-    ableProd: "/prod/able-product",
-    deleteProd: "/prod/delete-product",
-    prodOfferPrice: "/prod/set-offer-price",
-    editPrice: "/prod/edit-price",
+    getProd: "/api/products/get-products",
+    getDisabledProd: "/api/products/get-disabled-products",
+    editProd: "/api/products/edit-product",
+    spotlightProd: "/api/products/spotlight-product",
+    unSpotlightProd: "/api/products/unspotlight-product",
+    offerProd: "/api/products/offer-product",
+    unOfferProd: "/api/products/unoffer-product",
+    disableProd: "/api/products/disable-product",
+    ableProd: "/api/products/able-product",
+    deleteProd: "/api/products/delete-product",
+    prodOfferPrice: "/api/products/set-offer-price",
+    editPrice: "/api/products/edit-price",
   
   };

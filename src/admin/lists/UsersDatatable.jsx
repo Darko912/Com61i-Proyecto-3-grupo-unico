@@ -54,6 +54,9 @@ const UsersDatatable = () => {
   return (
     <div>
         <DataTable 
+        title='Usuarios'
+        fixedHeader
+        responsive
         data={users}
         columns={columns}
         pagination

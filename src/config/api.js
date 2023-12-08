@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { endPoints, productEndpoints, endPointAdmin, endPointUsers } from '../utils/endPointsConfig';
+import axiosClient from './axiosClient';
 const DBURL = import.meta.env.VITE_URL_BASE;
 
 export const createProduct = async (prodData, token) => {
@@ -52,6 +53,105 @@ export const getAllProd = async (token) => {
     console.log(error);
   }
 };
+
+export const spotlightProduct = async (token, id) => {
+  try {
+    return await axiosClient.patch(`${DBURL}${endPointAdmin.spotlightProd}/${id}`, {}, {
+      headers: {
+        "access-token": token
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const unSpotlightProduct = async (token, id) => {
+  try {
+    return await axiosClient.patch(
+      `${DBURL}${endPointAdmin.unSpotlightProd}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const ableProduct = async (token, id) => {
+  try {
+    return await axios.patch(`${DBURL}${endPointAdmin.ableProd}/${id}`, {},
+      {
+        headers: {
+          "access-token": token
+        }
+      })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const disableProduct = async (token, id) => {
+  try {
+    return await axios.patch(
+      `${DBURL}${endPointAdmin.disableProd}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editProd = async (token, id, prodData) => {
+  try {
+    return await axios.patch(`${DBURL}${endPointAdmin.editProd}/${id}`, prodData, {
+      headers: {
+        'access-token': token
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const offerProd = async (token, id) => {
+  try {
+    return await axios.patch(`${DBURL}${endPointAdmin.offerProd}/${id}`, {}, {
+      headers: {
+        'access-token': token
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const unOfferProd = async (token, id) => {
+  try {
+    return await axios.patch(
+      `${DBURL}${endPointAdmin.unOfferProd}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 
 
 //API USERS -------------------------------
