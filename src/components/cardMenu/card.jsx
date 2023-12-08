@@ -21,9 +21,9 @@ const CustomCard = ({ cards }) => {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row d-flex justify-content-center">
         {cards.map((card, index) => (
-          <div key={index} className="col-12 col-md-6 col-lg-3 mb-3">
+          <div key={index} className="col-12 col-md-4 col-lg-3 mb-3 m-md-3">
             <Card
               style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}
               onClick={() => handleCardClick(card.title)}

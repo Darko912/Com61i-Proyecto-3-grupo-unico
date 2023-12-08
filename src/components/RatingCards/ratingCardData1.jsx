@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 const Customratingcard = ({ title, content }) => {
   return (
     <div>
-      <Card style={{ width: '18rem', margin: '10px' }}>
+      <Card className='d-flex justify-content-center' style={{ width: '18rem', margin: '10px' }}>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
         </Card.Body>

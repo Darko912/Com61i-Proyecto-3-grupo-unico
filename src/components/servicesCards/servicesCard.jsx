@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import "./servicesCard.css"
+
 
 const Secciondeservicios = () => {
   const services = [
@@ -18,18 +20,13 @@ const Secciondeservicios = () => {
       description: 'Description for Service 3',
       image: 'https://picsum.photos/id/1035/200/300', 
     },
-    {
-      title: 'Gente',
-      description: 'Description for Service 4',
-      image: 'https://picsum.photos/id/1035/200/300', 
-    },
   ];
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row d-flex justify-content-center">
         {services.map((service, index) => (
-          <div key={index} className="col-md-4 m-md-5">
+          <div key={index} className="col-12 col-md-4 col-lg-3 m-md-4">
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={service.image} className="card-image" />
               <Card.Body>
