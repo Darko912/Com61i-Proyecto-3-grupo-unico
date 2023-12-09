@@ -28,7 +28,7 @@ const AdminProdCard = ({ product, updateProductState}) => {
      description: product.description,
      category: product.category,
      price: product.price,
-     offerPrice: product.offerPrice
+     offerprice: product.offerprice
    });
 
   const { enqueueSnackbar } = useSnackbar();
@@ -61,7 +61,7 @@ const AdminProdCard = ({ product, updateProductState}) => {
           await unOfferProd(token, product._id);
           setProdEditData((prev) => ({
             ...prev,
-            offerPrice: null
+            offerprice: null
           }));
           updateProductState(product._id, prodData)
         } else {
@@ -86,7 +86,7 @@ const AdminProdCard = ({ product, updateProductState}) => {
     const response = () => editProd(token, product._id, prodEditData);
     if (token) {
       try {
-        if (offer && parseInt(prodEditData.offerPrice) >= parseInt(prodEditData.price)) {
+        if (offer && parseInt(prodEditData.offerprice) >= parseInt(prodEditData.price)) {
            return Swal.fire({
              icon: "error",
              title: "Error en la oferta",
@@ -244,13 +244,13 @@ const AdminProdCard = ({ product, updateProductState}) => {
 
                     <div className="d-flex justify-content-around">
                       <div>
-                        {product.offerPrice ? (
-                          <div className="row">
+                        {product.offerprice ? (
+                          <div className="justify-content-center">
                             <p className="common-price">
                               Precio anterior: ${product.price}
                             </p>
                             <p className="offer-price">
-                              Precio en oferta: ${product.offerPrice}
+                              Precio en oferta: ${product.offerprice}
                             </p>
                           </div>
                         ) : (
@@ -261,7 +261,6 @@ const AdminProdCard = ({ product, updateProductState}) => {
                           </>
                         )}
                       </div>
-                      <p>Stock: {product.quantity}</p>
                     </div>
                     <div>
                       <Box className="justify-content-around d-flex">
@@ -376,21 +375,19 @@ const AdminProdCard = ({ product, updateProductState}) => {
                                 name="category"
                               >
                                 <option value="">Elige una categoría</option>
-                                <option value="RAM">Memoria RAM</option>
-                                <option value="VGA">Placa de video</option>
-                                <option value="MONITOR">Monitor</option>
-                                <option value="MOUSE">Mouse</option>
-                                <option value="KEYBOARD">Teclado</option>
-                                <option value="COOLER">Cooler</option>
-                                <option value="AUDIO">Audio</option>
-                                <option value="GAMER-CHAIR">
-                                  Sillón Gamer
-                                </option>
-                                <option value="PROCESSOR">Procesador</option>
-                                <option value="CASE">Gabinete</option>
-                                <option value="PWSUPPLY">Fuente</option>
-                                <option value="MOTHERBOARD">Placa madre</option>
-                                <option value="PC">PC Completa</option>
+                                <option value="PIZZA">Pizza</option>
+                                <option value="BURGER">Hamburguesa</option>
+                                <option value="SANDWICH">Sandwich</option>
+                                <option value="EMPANADA">Empanada</option>
+                                <option value="DRINKS">Bebida</option>
+                                <option value="ICECREAM">Helado</option>
+                                <option value="PASTA">Pasta</option>
+                                <option value="MEAT">Carnes</option>
+                                <option value="SUSHI">Sushi</option>
+                                <option value="CHICKEN">Pollo</option>
+                                <option value="FISHES">Pezcado</option>
+                                <option value="RECOMENDED">Recomendado de la casa</option>
+                                <option value="SALAD">Ensalada</option>
                               </Form.Select>
                               <div className="small">
                                 {errors.category?.type === "validate" && (
@@ -538,10 +535,10 @@ const AdminProdCard = ({ product, updateProductState}) => {
                                 <Form.Label>Precio de oferta</Form.Label>
                                 <Form.Control
                                   type="text"
-                                  placeholder={product.offerPrice}
-                                  defaultValue={product.offerPrice}
-                                  name="offerPrice"
-                                  {...register("offerPrice", {
+                                  placeholder={product.offerprice}
+                                  defaultValue={product.offeprice}
+                                  name="offerprice"
+                                  {...register("offerprice", {
                                     required: true,
                                     maxLength: 6,
                                     minLength: 1,
@@ -550,25 +547,25 @@ const AdminProdCard = ({ product, updateProductState}) => {
                                   onChange={handleChange}
                                 />
                                 <div className="small">
-                                  {errors.offerPrice?.type === "required" && (
+                                  {errors.offerprice?.type === "required" && (
                                     <p className="alertas">
                                       {messages.prodOfferPriceError}
                                     </p>
                                   )}
 
-                                  {errors.offerPrice?.type === "maxLength" && (
+                                  {errors.offerprice?.type === "maxLength" && (
                                     <p className="alertas">
                                       {messages.prodPriceMaxLengthError}
                                     </p>
                                   )}
 
-                                  {errors.offerPrice?.type === "minLength" && (
+                                  {errors.offerprice?.type === "minLength" && (
                                     <p className="alertas">
                                       {messages.prodPriceMinLengthError}
                                     </p>
                                   )}
 
-                                  {errors.offerPrice?.type === "pattern" && (
+                                  {errors.offerprice?.type === "pattern" && (
                                     <p className="alertas">
                                       {messages.prodPriceMatchError}
                                     </p>
@@ -585,10 +582,10 @@ const AdminProdCard = ({ product, updateProductState}) => {
                               <Form.Control
                                 type="text"
                                 disabled
-                                placeholder={product.offerPrice}
-                                defaultValue={product.offerPrice}
-                                value={product.offerPrice}
-                                name="offerPrice"
+                                placeholder={product.offerprice}
+                                defaultValue={product.offerprice}
+                                value={product.offerprice}
+                                name="offerprice"
                                 onChange={handleChange}
                               />
                             </Form.Group>

@@ -17,7 +17,7 @@ const Admin = () => {
     <Panel setPanel={setPanel}/>
     </div>
     <div>
-      {panel === 1 && <UsersDatatable /> }
+      {panel === 1 && <UsersList /> }
       {panel === 2 && <AllProdDatatable />}
       {panel === 3 && <CreateProduct />}
     

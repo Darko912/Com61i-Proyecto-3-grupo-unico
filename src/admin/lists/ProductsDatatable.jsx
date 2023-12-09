@@ -13,6 +13,7 @@ const AllProdDatatable = () => {
 
   const { token } = useContext(AuthContext);
 
+
    const resp = async () => {
      if (token) {
        try {
@@ -118,7 +119,7 @@ const AllProdDatatable = () => {
       options: {
         customBodyRender: (value, tableMeta) => {
           const price = prod[tableMeta.rowIndex].price;
-          const offerPrice = prod[tableMeta.rowIndex].offerPrice;
+          const offerPrice = prod[tableMeta.rowIndex].offerprice;
           return (
             <div>
               {offerPrice ? (
@@ -141,11 +142,15 @@ const AllProdDatatable = () => {
       label: "CATEGORÍA",
       options: {
         sort: false,
+        customBodyRender: (value, tableMeta) => {
+          const isOffer = prod[tableMeta.rowIndex].offer;
+          return isOffer ? 'Oferta' : 'Lista';
+        }
       },
     },
     {
-      name: "quantity",
-      label: "CANTIDAD",
+      name: "offer",
+      label: "OFERTA",
       options: {
         sort: false,
       },

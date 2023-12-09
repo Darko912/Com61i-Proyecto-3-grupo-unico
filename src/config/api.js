@@ -54,6 +54,8 @@ export const getAllProd = async (token) => {
   }
 };
 
+
+
 export const spotlightProduct = async (token, id) => {
   try {
     return await axiosClient.patch(`${DBURL}${endPointAdmin.spotlightProd}/${id}`, {}, {
