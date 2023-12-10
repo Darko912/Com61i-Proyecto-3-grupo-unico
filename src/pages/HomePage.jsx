@@ -7,19 +7,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselComponent from '../components/carousel/carousel';
 import Cardgrouprating from '../components/RatingCards/ratingCard';
 import Secciondeservicios from '../components/servicesCards/servicesCard';
+import ComponentNavBar from '../components/Navbar/ComponentNavBar';
+import ComponentFooter from '../components/Footer/ComponentFooter';
 
 const HomePage = () => {
   
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#">Home</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#">About</Nav.Link>
-          <Nav.Link href="#">Contact</Nav.Link>
-        </Nav>
-      </Navbar>
+      <div >
+
+         <ComponentNavBar/>
+
+      </div>
 
       <h1 className='text-center'>Bienvenido a Curva del sabor!</h1>
 
@@ -51,6 +51,12 @@ const HomePage = () => {
         <h2 className='text-center'>Nuestro Servicio Incluye:</h2>
       </div>
       <Secciondeservicios/>
+
+      <div>
+
+         <ComponentFooter/>
+
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import AdminPage from './pages/AdminPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
+import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='*' element={<ErrorPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
+        <Route path='/SobreNosotros' element={<SobreNosotrosPage/>}/>
 
       </Routes>
     </BrowserRouter>
