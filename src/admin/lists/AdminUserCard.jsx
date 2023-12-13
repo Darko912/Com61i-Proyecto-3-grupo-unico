@@ -2,12 +2,13 @@ import { Switch, Box, FormControlLabel } from '@mui/material';
 import React, { useState, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import { Card, Button, Container, Carousel, Form, Row, Col } from 'react-bootstrap'
-import { ableProduct, disableProduct, editProd, offerProd, spotlightProduct, unOfferProd, unSpotlightProduct } from '../../config/api';
+import {  ableUser, adminUser, clientUser, disableUser, editUser } from '../../config/api';
 import { useForm } from 'react-hook-form';
 import { validationsFields, isValidCategory } from '../../utils/validations';
 import { messages } from '../../utils/messages'
 import Swal from 'sweetalert2';
 import { useSnackbar } from 'notistack';
+import '../styles/adminUserModal.css'
 
 
 
@@ -16,8 +17,12 @@ const AdminUserCard = ({ user, updateUserState}) => {
   const { token } = useContext(AuthContext);
 
   const [userStatus, setUserStatus] = useState(user.disabled);
+
+  const [userRole, setUserRole] = useState(user.role)
   
   const [editUserCard, setEditUserCard] = useState(0);
+
+  const [animationClass, setAnimationClass] = useState('');
 
    const [userEditData, setUserEditData] = useState({
      name: user.name,
@@ -43,133 +48,78 @@ const AdminUserCard = ({ user, updateUserState}) => {
    }));
  };
 
-  
 
-
-
-
-  const handleOfferProd = async (prodData) => {
-    if (token) {
-      try {
-        if (offer) {         
-          await unOfferProd(token, product._id);
-          setProdEditData((prev) => ({
-            ...prev,
-            offerprice: null
-          }));
-          updateProductState(product._id, prodData)
-        } else {
-          await offerProd(token, product._id)               
-        }
-        updateProductState(product._id, { offer: !offer });
-        setOffer(!offer); 
-        const message = offer
-          ? "Producto SACADO de oferta"
-          : "Producto PUESTO en oferta";
+ const adminMaker = async () => {
+  if (token) {
+    try {
+      await adminUser(token, user._id);
+      await updateUserState(user._id, {role: 'admin'});
+      const message = `${user.name} es ahora Administrador`;
         enqueueSnackbar(`${message}`, {
-          variant: `${offer ? "warning" : "success"}`,
+          variant: "success",         
         });
-      } catch (error) {
-        console.log(error);
-      }
+        setAnimationClass('grow');
+          setTimeout(() => {
+            setAnimationClass('');
+          }, 300);
+      return setUserRole('admin');
+      
+    } catch (error) {
+      console.log(error);
     }
   }
-  
-  const handleEditProduct = async (prodData) => {
-          
-    const response = () => editProd(token, product._id, prodEditData);
-    if (token) {
-      try {
-        if (offer && parseInt(prodEditData.offerprice) >= parseInt(prodEditData.price)) {
-           return Swal.fire({
-             icon: "error",
-             title: "Error en la oferta",
-             text: "El precio en oferta no puede ser mayor al precio actual",
-           });
-        } else {
-          const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-              confirmButton: "btn btn-success mx-1",
-              cancelButton: "btn btn-danger mx-1",
-            },
-            buttonsStyling: false,
-          });
-          
-          swalWithBootstrapButtons
-            .fire({
-              title: "Esperando Confirmación",
-              text: `Estás seguro que quieres editar el producto "${product.tittle}"?`,
-              icon: `warning`,
-              showCancelButton: true,
-              confirmButtonText: "Sí, editar",
-              cancelButtonText: "No, cancelar!",
-              reverseButtons: true,
-            })
-            .then(async (result) => {
-              if (result.isConfirmed) {
-                await response();
-                await updateProductState(product._id, prodData);
-                swalWithBootstrapButtons.fire(
-                  "Edición exitosa!",
-                  `El producto "${product.tittle}" se ha editado correctamente!`,
-                  "success"
-                );
-              } else if (result.dismiss === Swal.DismissReason.cancel) {
-                swalWithBootstrapButtons.fire(
-                  "Cancelado",
-                  `El producto "${product.tittle}" continuará como antes`,
-                  "error"
-                );
-              }
-            });
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
+ };
 
-
-  const handleSpotlightProd = async () => {
-    if (token) {
-      try {
-        if (spotlight) {
-          await unSpotlightProduct(token, product._id);       
-        } else {
-          await spotlightProduct(token, product._id);        
-        }     
-        setSpotlight(!spotlight);
-        await updateProductState(product._id, { spotlight: !spotlight });
-        const message = spotlight ? 'Producto DESMARCADO como destacado' : 'Producto MARCADO como destacado';
+ const clientMaker = async () => {
+  if (token) {
+    try {
+      await clientUser(token, user._id);
+      await updateUserState(user._id, {role: 'client'});
+      const message = `${user.name} es ahora Cliente`;
         enqueueSnackbar(`${message}`, {
-          variant: `${spotlight ? "warning" : "success"}`,         
+          variant: "warning",         
         });
-      } catch (error) {
-        console.log(error);
-      }
+        setAnimationClass('grow');
+          setTimeout(() => {
+            setAnimationClass('');
+          }, 300);
+      return setUserRole('client');
+      
+    } catch (error) {
+      console.log(error);
     }
   }
+ }
 
-
-  const handleProdStatus = async () => {
+  const handleUserStatus = async () => {
     if (token) {
       try {
-        if (prodStatus) {
-          await ableProduct(token, product._id);          
+        if (userStatus) {
+          await ableUser(token, user._id);          
         } else {
-          await disableProduct(token, product._id);   
+          await disableUser(token, user._id);   
         };   
-        setProdStatus(!prodStatus);
-        await updateProductState(product._id, { disabled: !prodStatus });
-        const message = !prodStatus ? 'Producto DESABILITADO con éxito' : 'Producto HABILITADO con éxito';
+        setUserStatus(!userStatus);
+        await updateUserState(user._id, { disabled: !userStatus });
+        const message = !userStatus ? 'Usuario DESABILITADO con éxito' : 'Usuario HABILITADO con éxito';
         enqueueSnackbar(`${message}`, {
-          variant: `${!prodStatus ? 'warning' : 'success'}`})
+          variant: `${!userStatus ? 'warning' : 'success'}`})
       } catch (error) {
         console.log(error);
       }
     }
   }
 
+  const handleEditUser = async(userData) => {
+    const response = () => editUser(token, user._id, userEditData);
+    if (token) {
+      try {
+        
+      } catch (error) {
+        
+      }
+    }
+  }
 
   return (
     <>
@@ -190,8 +140,26 @@ const AdminUserCard = ({ user, updateUserState}) => {
                 <Card className="prod-edit-card">
                   <Card.Body>                 
                     <Card.Title className="my-3 text-center">
-                      {user.name + user.lastname}
+                      {user.name} {user.lastname}
                     </Card.Title>
+                    <div className='d-flex justify-content-center'>
+                    <Button
+                    className={`btnAble  ${userRole === 'client' ? 'grow btn-outline-success' : 'shrink btn-outline-danger'}`}
+                    onClick={() => clientMaker(user._id)}
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width={userRole === 'client' ? '40' : '20'} height={userRole === 'client' ? '40' : '20'} fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+                    </svg>
+                    </Button>
+                    <Button
+                    className={`btnAble ${userRole === 'admin' ? 'grow btn-outline-success' : 'shrink btn-outline-danger'}`}
+                    onClick={() => adminMaker(user._id)}
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width={userRole === 'admin' ? '40' : '20'} height={userRole === 'admin' ? '40' : '20'} fill="currentColor" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
+                    </svg>
+                  </Button>
+                    </div>
                     <Card.Text className="text-center">
                       {user.email}
                     </Card.Text>
@@ -204,7 +172,7 @@ const AdminUserCard = ({ user, updateUserState}) => {
                             <Switch
                               color="warning"
                               checked={!userStatus}
-                              onClick={handleProdStatus}
+                              onClick={handleUserStatus}
                               onChange={setUserStatus}
                             />
                           }
@@ -243,14 +211,14 @@ const AdminUserCard = ({ user, updateUserState}) => {
                 <Col>
                   <Card className="prod-edit-card">
                     <Card.Body>
-                      <Form onSubmit={handleSubmit(handleEditProduct)}>
+                      <Form onSubmit={handleSubmit()}>
                         <div>
                           <div className="text-center">
                             <Form.Group
                               className="mb-3"
                               controlId="exampleForm.ControlInput1"
                             >
-                              <Form.Label>
+                              <Form.Label className=''>
                                 Editar nombre del usuario
                               </Form.Label>
                               <Form.Control
@@ -258,6 +226,7 @@ const AdminUserCard = ({ user, updateUserState}) => {
                                 placeholder={user.name}
                                 defaultValue={user.name}
                                 name="name"
+                                className='text-center'
                                 {...register("name", {
                                   required: false,
                                   maxLength: 40,
@@ -298,6 +267,7 @@ const AdminUserCard = ({ user, updateUserState}) => {
                               placeholder={user.lastname}
                               defaultValue={user.lastname}
                               name="lastname"
+                              className='text-center'
                               {...register("lastname", {
                                 required: false,
                                 maxLength: 40,
@@ -325,8 +295,8 @@ const AdminUserCard = ({ user, updateUserState}) => {
                           </Form.Group>
                         </div>
 
-                        <div className="d-flex justify-content-around text-center">
-                          <div className="col-6">
+                        <div className="text-center">
+                          <div>
                             <Form.Group
                               className="mb-3"
                               controlId="exampleForm.ControlInput1"
@@ -337,6 +307,7 @@ const AdminUserCard = ({ user, updateUserState}) => {
                                 placeholder={user.email}
                                 defaultValue={user.email}
                                 name="email"
+                                className='text-center'
                                 {...register("email", {
                                   required: false,
                                   maxLength: 6,

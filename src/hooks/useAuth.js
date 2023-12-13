@@ -34,7 +34,7 @@ export const useAuth = () => {
     useEffect(() => {
         const storedId = localStorage.getItem('payload');
         setUserId(storedId._id)
-    }, []);
+    }, [state]);
 
 
 

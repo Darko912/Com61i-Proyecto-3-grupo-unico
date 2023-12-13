@@ -12,7 +12,7 @@ const UsersDatatable = () => {
     const {token} = useAuth();
 
     
-    useEffect(() => {
+
       const getUsers = async () => {
         try {
           if (token) {       
@@ -23,8 +23,7 @@ const UsersDatatable = () => {
           console.log(error);
         }
       };
-      getUsers()
-    }, [token]);
+     
 
     const columns = [
         {

@@ -17,7 +17,7 @@ const initState = {
 
 export const AuthProvider = ({ children }) => {
 
-  const [token, setToken] = useState(() => window.localStorage.getItem('token' || null));
+  const [token, setToken] = useState(() => window.localStorage.getItem('token') || null);
   const [state, dispatch] = useReducer(AuthReducer, (localStorage.getItem('authState') && JSON.parse(localStorage.getItem('authState'))) || initState);
 
 

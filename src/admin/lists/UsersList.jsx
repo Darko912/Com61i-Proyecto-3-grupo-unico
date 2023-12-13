@@ -12,14 +12,18 @@ const AllUsersDatatable = () => {
 
   const [user, setUser] = useState([]);
 
+  const [userMod, setUserMod] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null)
+
   const { token } = useContext(AuthContext);
 
 
   const getUsers = async () => {
     try {
       if (token) {       
-        const response = await getAllusers(token)
-        setUser(response.data)
+        await getAllusers(token).then((response) => {
+          setUser(response.data)
+        })
       }
     } catch (error) {
       console.log(error);
@@ -30,13 +34,9 @@ const AllUsersDatatable = () => {
     getUsers();
   }, []);
 
-  const [userMod, setUserMod] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null)
+  
 
-  const handleOpenProd = (rowData) => {
-    setSelectedUser(rowData)
-    setUserMod(true)
-  };
+  
    const handleCloseUser = () => setUserMod(false);
 
   const updateUserState = (userId, updatedState) => {
@@ -44,10 +44,15 @@ const AllUsersDatatable = () => {
       if (user._id === userId) {
         return {...user, ...updatedState};
       }
-      return product;
+      return user;
     });
     setUser(updatedUser);
   }
+
+  const handleOpenUser = (rowData) => {
+    setSelectedUser(rowData)
+    setUserMod(true)
+  };
 
   const options = {
     fixedHeader: true,
@@ -175,7 +180,7 @@ const AllUsersDatatable = () => {
           return (
             <Button
               className="btnWatch btn-outline-success"
-              onClick={() => handleOpenProd(user[tableMeta.rowIndex])}
+              onClick={() => handleOpenUser(user[tableMeta.rowIndex])}
             >
               <Tooltip id="viewProdTt" type="info" />
               <svg

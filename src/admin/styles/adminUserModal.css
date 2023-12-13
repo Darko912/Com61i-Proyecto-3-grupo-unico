@@ -1,0 +1,31 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Estilo base para los botones */
+  .btnAble {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Estilo específico para el botón de éxito */
+  .btnAble-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  /* Estilo específico para el botón de peligro */
+  .btnAble-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* Estilo para la animación de crecimiento */
+  .grow {
+    transform: scale(1.1);
+  }
+  
+  /* Estilo para la animación de reducción */
+  .shrink {
+    transform: scale(0.9);
+  }

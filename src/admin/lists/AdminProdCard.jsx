@@ -49,11 +49,6 @@ const AdminProdCard = ({ product, updateProductState}) => {
    }));
  };
 
-  
-
-
-
-
   const handleOfferProd = async (prodData) => {
     if (token) {
       try {

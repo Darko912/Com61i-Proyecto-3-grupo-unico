@@ -185,3 +185,127 @@ export const getAllusers = async (token) => {
     console.log(error);
   }
 };
+
+export const getAdminUsers = async (token) => {
+  try {
+    return await axios.get(`${DBURL}${endPointAdmin.getAdminUsers}`, {
+      headers: {
+        "access-token": token
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const getBannedUsers = async (token) => {
+  try {
+    return await axios.get(`${DBURL}${endPointAdmin.getBannedUsers}`, {
+      headers: {
+        "access-token": token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getActiveUsers = async (token) => {
+  try {
+    return await axios.get(`${DBURL}${endPointAdmin.getActiveUsers}`, {
+      headers: {
+        "access-token": token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editUser = async (token, userData, id) => {
+  try {
+    return await axios.patch(`${DBURL}${endPointAdmin.editUser}/${id}`, userData, {
+      headers: {
+        "access-token": token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const disableUser = async (token, id) => {
+  try {
+    return await axios.patch(`${DBURL}${endPointAdmin.disableUser}/${id}`,{}, {
+      headers: {
+        "access-token": token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const ableUser = async (token, id) => {
+  try {
+    return await axios.patch(
+      `${DBURL}${endPointAdmin.ableUser}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const adminUser = async (token, id) => {
+  try {
+    return await axios.patch(
+      `${DBURL}${endPointAdmin.adminUser}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const clientUser = async (token, id) => {
+  try {
+    return await axios.patch(
+      `${DBURL}${endPointAdmin.clientUser}/${id}`,
+      {},
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const uploadAvatar = async (token, id, avatarForm) => {
+  try {
+    return await axios.post(
+      `${DBURL}${endPointUsers.uploadAvatar}/${id}`,
+      avatarForm,
+      {
+        headers: {
+          "access-token": token,
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
