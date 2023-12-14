@@ -4,25 +4,29 @@ import App from './App.jsx'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage.jsx';
-import AdminPage from './pages/AdminPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
+import Admin from './admin/Admin.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
+import Login from './users/Login.jsx';
+import { SnackbarProvider } from 'notistack';
 import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/admin' element={<AdminPage/>}/>
-        <Route path='*' element={<ErrorPage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/register' element={<RegisterPage/>}/>
-        <Route path='/SobreNosotros' element={<SobreNosotrosPage/>}/>
-
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+    <AuthProvider>
+      <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/register' element={<RegisterPage/>}/>
+            <Route path='/admin' element={<Admin/>}/>
+            <Route path='/SobreNosotros' element={<SobreNosotrosPage/>}/>
+          </Routes>
+        </BrowserRouter>
+      </SnackbarProvider> 
+    </AuthProvider>
+  </React.StrictMode>
 )
