@@ -1,8 +1,8 @@
 const Cards = [
   {
-    title: 'Custom Title 1',
-    description: 'Custom Description 1',
-    image: 'https://picsum.photos/id/1018/200/300',
+    title: 'CHEESEBURGER',
+    description: 'Nuestra sencilla hamburguesa con queso clásica comienza con un patty de hamburguesa de 100% carne de res condimentado con una pizca de sal y pimienta. La Cheeseburger',
+    image:'https://www.sargento.com/assets/Uploads/Recipe/Image/burger_0.jpg',
   },
   {
     title: 'Custom Title 2',

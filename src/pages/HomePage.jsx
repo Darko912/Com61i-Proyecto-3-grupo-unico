@@ -9,6 +9,7 @@ import Cardgrouprating from '../components/RatingCards/ratingCard';
 import Secciondeservicios from '../components/servicesCards/servicesCard';
 import ComponentNavBar from '../components/Navbar/ComponentNavBar';
 import ComponentFooter from '../components/Footer/ComponentFooter';
+import ComponentNavbar2 from '../components/NavBar2/ComponentNavbar2';
 
 const HomePage = () => {
   
@@ -21,15 +22,13 @@ const HomePage = () => {
 
       </div>
 
-      <h1 className='text-center'>Bienvenido a Curva del sabor!</h1>
+      <h1 className='tituloMain text-center'>Bienvenido a Curva del sabor!</h1>
 
-      <br />
+      <hr/>
       
-      <h1 className="text-center">Menu del Dia!</h1>
-
       <CustomCard cards={Cards} />
 
-      <h1 className="text-center">Disfrute de su comida en el lugar mas Elegante de la Argentina</h1>
+      <h1 className="tituloMain text-center">Disfrute de su comida en el lugar mas Elegante de la Argentina</h1>
 
       <br />
 
@@ -39,17 +38,21 @@ const HomePage = () => {
 
 
       <div id="MasDeNosotros" className="MasDeNosotros">
-        <h2>Historia del Establecimiento</h2>
-        <p>En 1892, nació "La Curva del Sabor" un acogedor rincón que se convertiría en el epicentro de la fusión italo-germana-Argenta. Desde el dia de su fundacion y gracias a los esfuerzos y cambios de epocas este restaurante lleva Años y años pasando la antorcha a las generaciones nuevas sobre cocina. este restaurante incorporó la precisión alemana y la innovación en la mezcla.</p>
+        <h2 className='tituloMain'>Historia del Establecimiento</h2>
+        <hr />
+        <p className='letrasMain'>En 1892, nació "La Curva del Sabor" un acogedor rincón que se convertiría en el epicentro de la fusión italo-germana-Argenta. Desde el dia de su fundacion y gracias a los esfuerzos y cambios de epocas este restaurante lleva Años y años pasando la antorcha a las generaciones nuevas sobre cocina. este restaurante incorporó la precisión alemana y la innovación en la mezcla.</p>
         <Container>
-        <h1>Nuestro Staff esta comprometido por estas personas</h1>
+        <h1 className='letrasMain'>Prestamos los siguientes servicios</h1>
        <Cardgrouprating/>
        </Container>
       </div>
 
-      <div>
-        <h2 className='text-center'>Nuestro Servicio Incluye:</h2>
+      <div className='tituloCardsSecundarias container'>
+
+        <h2 className='letrasMain text-center'>Nuestro Servicio Incluye</h2>
+
       </div>
+      
       <Secciondeservicios/>
 
       <div>
