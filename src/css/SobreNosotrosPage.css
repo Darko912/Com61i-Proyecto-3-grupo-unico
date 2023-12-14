@@ -1,0 +1,24 @@
+.bodyCards{
+    padding-top: 70px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+.cardSobreNosotros{
+    background-color: black;
+    opacity: 0.9;
+    border: 2px solid gray;
+    border-radius: 40px;
+}
+.cardDetails{
+    color: white;
+}
+.cardSobreNosotros:hover{
+    transform: scale(0.9);
+}
+.iconosSobreNosotros{
+    color: aliceblue;
+    padding: 10px;
+}
+.iconosSobreNosotros:hover{
+    color: red;
+}

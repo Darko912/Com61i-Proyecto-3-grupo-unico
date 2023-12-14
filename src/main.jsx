@@ -10,6 +10,7 @@ import Admin from './admin/Admin.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import Login from './users/Login.jsx';
 import { SnackbarProvider } from 'notistack';
+import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/admin' element={<Admin/>}/>
+            <Route path='/SobreNosotros' element={<SobreNosotrosPage/>}/>
           </Routes>
         </BrowserRouter>
       </SnackbarProvider> 
