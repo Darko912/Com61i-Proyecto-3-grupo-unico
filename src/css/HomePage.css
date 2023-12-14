@@ -17,4 +17,223 @@
   html {
     scroll-behavior: smooth;
   }
+  .tituloMain{
+    padding-top: 65px;
+    font-family: 'Kalnia', serif;
+  }
+  .letrasMain{
+    font-family: 'Kalnia', serif;
+  }
   
+/*===== SCROLL PERSONALIZADO =====*/
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+/*===== FIN DE SCROLL PERSONALIZADO =====*/
+
+.cardsMain{
+  background-color: #B1CF5F;
+  border-radius: 20px;
+}
+.Center{
+  display: flex;
+  justify-content: center;
+}
+
+.imgCards{
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+}
+.botonCardMain{
+  background-color: #1B512D;
+  border: #1B512D;
+  transition: all 0.5s ease-in-out;
+}
+.botonCardMain:hover{
+  background-color: black;
+  transform: scale(1.1);
+}
+.cardsMain:hover{
+  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+}
+.cardsMain:hover::before,
+.cardsMain:hover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1C7C54;
+  border-radius: 20px;
+  z-index: -1;
+  animation: 2s clockwise infinite;
+}
+.cardsMain:hover:after{
+  background: #73E2A7;
+  animation: 2s counterclockwise infinite;
+}
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;    
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;    
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;    
+  }
+}
+
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
+  12% {
+    top: -2px;
+    right: 2px;
+  }
+  25% {
+    top: 0;
+    right: 5px;    
+  }
+  37% {
+    top: 2px;
+    right: 2px;
+  }
+  50% {
+    top: 5px;
+    right: 0;    
+  }
+  62% {
+    top: 2px;
+    right: -2px;
+  }
+  75% {
+    top: 0;
+    right: -5px;
+  }
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+  100% {
+    top: -5px;
+    right: 0;    
+  }
+}
+
+.tituloCardsSecundarias{
+  padding-top: 30px;
+}
+
+.divRatingCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-86 {
+  all: unset;
+  height: 30px;
+  font-size: 16px;
+  background: black;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-86::after,
+.button-86::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+}
+
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+.cardRating{
+  display: flex;
+  justify-content: center;
+}

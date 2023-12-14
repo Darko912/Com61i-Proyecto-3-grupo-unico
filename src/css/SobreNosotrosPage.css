@@ -8,6 +8,7 @@
     opacity: 0.9;
     border: 2px solid gray;
     border-radius: 40px;
+    transition: all 1s ease-in-out;
 }
 .cardDetails{
     color: white;

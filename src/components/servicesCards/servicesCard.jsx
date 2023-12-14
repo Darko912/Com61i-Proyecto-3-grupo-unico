@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import './servicesCard.css'
 
 const Secciondeservicios = () => {
   const services = [
@@ -26,8 +27,8 @@ const Secciondeservicios = () => {
   ];
 
   return (
-    <div className="container">
-      <div className="row">
+    <div className=" container">
+      <div className="containerCardsServices row">
         {services.map((service, index) => (
           <div key={index} className="col-md-4 m-md-5">
             <Card style={{ width: '18rem' }}>

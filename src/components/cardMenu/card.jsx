@@ -20,20 +20,20 @@ const CustomCard = ({ cards }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container text-center">
       <div className="row">
         {cards.map((card, index) => (
-          <div key={index} className="col-12 col-md-6 col-lg-3 mb-3">
-            <Card
+          <div key={index} className="Center col-md-6 col-lg-3 mb-3">
+            <Card className='cardsMain'
               style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}
               onClick={() => handleCardClick(card.title)}
             >
-              <Card.Img variant="top" src={card.image} className="card-image" />
+              <Card.Img variant="top" src={card.image} className="imgCards card-image" />
               <Card.Body>
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>{card.description}</Card.Text>
-                <Button variant="primary" onClick={() => handleCardClick(card.title)}>
-                  Go somewhere
+                <Button className='botonCardMain' onClick={() => handleCardClick(card.title)}>
+                  Añadir al Carrito
                 </Button>
               </Card.Body>
             </Card>
