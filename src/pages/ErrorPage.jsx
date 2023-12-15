@@ -4,9 +4,9 @@ import "../css/ErrorPage.css";
 
 const ErrorPage = () => {
   return (
-    <div className='text-center'>
+    <div className='text-center contenido-de-error'>
       <h1 className='texto-de-error'>404 - No Encontrado</h1>
-      <p>Sorry, la pagina que buscas parece que no existe!.</p>
+      <p className='texto-de-sorry'>Sorry, la pagina que buscas parece que no existe!.</p>
       <Link to="/">Go back to the main page</Link>
     </div>
   );
