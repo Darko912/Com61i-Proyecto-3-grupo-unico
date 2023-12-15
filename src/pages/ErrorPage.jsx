@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <div className='text-center contenido-de-error'>
       <h1 className='texto-de-error'>404 - No Encontrado</h1>
       <p className='texto-de-sorry'>Sorry, la pagina que buscas parece que no existe!.</p>
-      <Link to="/">Go back to the main page</Link>
+      <Link to="/">Volver a la Pagina Principal</Link>
     </div>
   );
 }
