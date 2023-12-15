@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import axiosClient from '../../config/axiosClient';
+import { AuthContext } from '../../context/AuthContext';
 
 const CustomCard = () => {
   const [spotlightProducts, setSpotlightProducts] = useState([]);
   const [token, setToken] = useState('');
+
+  const authContext = useContext(AuthContext);
 
   useEffect(() => {
     const fetchSpotlightProducts = async () => {
@@ -27,6 +30,15 @@ const CustomCard = () => {
   }, []);
 
   const handleCardClick = (title) => {
+    if (!authContext.state.isLogged) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes iniciar sesión para agregar al carrito.',
+      });
+      return;
+    }
+
     Swal.fire({
       title: 'Confirmar Orden',
       text: `Quieres Ordenar ${title}?`,
