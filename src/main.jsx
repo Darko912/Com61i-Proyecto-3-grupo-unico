@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/admin' element={<Admin/>}/>
-            <Route path='/SobreNosotros' element={<SobreNosotrosPage/>}/>
+            <Route path='/aboutUs' element={<SobreNosotrosPage/>}/>
           </Routes>
         </BrowserRouter>
       </SnackbarProvider> 

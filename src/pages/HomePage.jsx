@@ -10,6 +10,7 @@ import Secciondeservicios from '../components/servicesCards/servicesCard';
 import ComponentNavBar from '../components/Navbar/ComponentNavBar';
 import ComponentFooter from '../components/Footer/ComponentFooter';
 import ComponentNavbar2 from '../components/NavBar2/ComponentNavbar2';
+import NavBar from '../components/Navbar/NavBar';
 
 const HomePage = () => {
   
@@ -18,7 +19,8 @@ const HomePage = () => {
     <div>
       <div >
 
-         <ComponentNavBar/>
+         {/* <ComponentNavBar/> */}
+         <NavBar />
 
       </div>
 

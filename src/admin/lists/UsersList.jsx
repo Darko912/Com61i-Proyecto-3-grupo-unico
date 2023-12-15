@@ -15,8 +15,9 @@ const AllUsersDatatable = () => {
   const [userMod, setUserMod] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null)
 
-  const { token } = useContext(AuthContext);
+  const { token, state } = useContext(AuthContext);
 
+  console.log(state);
 
   const getUsers = async () => {
     try {
