@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import axiosClient from '../../config/axiosClient';
 
-const CustomCard = ({ cards }) => {
+const CustomCard = () => {
+  const [spotlightProducts, setSpotlightProducts] = useState([]);
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    const fetchSpotlightProducts = async () => {
+      try {
+        const storedToken = localStorage.getItem('token');
+        setToken(storedToken);
+        const response = await axiosClient.get('/api/products/get-products', {
+          headers: {
+            'access-token': storedToken,
+          },
+        });
+        setSpotlightProducts(response.data); 
+      } catch (error) {
+        console.error('Error fetching spotlight products:', error.message);
+      }
+    };
+
+    fetchSpotlightProducts();
+  }, []);
 
   const handleCardClick = (title) => {
     Swal.fire({
@@ -22,17 +44,18 @@ const CustomCard = ({ cards }) => {
   return (
     <div className="container text-center">
       <div className="row">
-        {cards.map((card, index) => (
+        {spotlightProducts.map((product, index) => (
           <div key={index} className="Center col-md-6 col-lg-3 mb-3">
             <Card className='cardsMain'
               style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}
-              onClick={() => handleCardClick(card.title)}
+              onClick={() => handleCardClick(product.tittle)}
             >
-              <Card.Img variant="top" src={card.image} className="imgCards card-image" />
+              <Card.Img variant="top" src={product.icon} className="imgCards card-image" />
               <Card.Body>
-                <Card.Title>{card.title}</Card.Title>
-                <Card.Text>{card.description}</Card.Text>
-                <Button className='botonCardMain' onClick={() => handleCardClick(card.title)}>
+                <Card.Title>{product.tittle}</Card.Title>
+                <Card.Text>{product.description}</Card.Text>
+                <Card.Text>${product.price}</Card.Text>
+                <Button className='botonCardMain' onClick={() => handleCardClick(product.title)}>
                   Añadir al Carrito
                 </Button>
               </Card.Body>
