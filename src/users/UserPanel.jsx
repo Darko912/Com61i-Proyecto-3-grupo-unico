@@ -15,7 +15,7 @@ const UserPanel = ({ user, userId }) => {
 
   const { token } = useContext(AuthContext);
 
- 
+    console.log(user);
 
   const [showAvatarChange, setShowAvatarChange] = useState(false);
   const handleAvatarHover = (isHovering) => {
@@ -44,7 +44,7 @@ const UserPanel = ({ user, userId }) => {
     }));
   };
 
-  const [changedAvatar, setChangedAvatar] = useState(user[0].avatar)
+  const [changedAvatar, setChangedAvatar] = useState(user.avatar)
 
 
   const {
@@ -75,7 +75,7 @@ const UserPanel = ({ user, userId }) => {
           swalWithBootstrapButtons
             .fire({
               title: "Esperando Confirmación",
-              text: `Estás seguro que quieres editar tu email anterior (${user[0]?.email}) por (${mail.email}) ? `,
+              text: `Estás seguro que quieres editar tu email anterior (${user?.email}) por (${mail.email}) ? `,
               icon: `warning`,
               showCancelButton: true,
               confirmButtonText: "Sí, editar",
@@ -95,7 +95,7 @@ const UserPanel = ({ user, userId }) => {
                 handleCloseEditMail();
                 swalWithBootstrapButtons.fire(
                   "Cancelado",
-                  `Tu email seguirá siendo "${user[0]?.email}"`,
+                  `Tu email seguirá siendo "${user?.email}"`,
                   "error"
                 );
               }
@@ -111,9 +111,9 @@ const UserPanel = ({ user, userId }) => {
 
   return (
     <>
-      {user.length > 0 && (
+      {user && (
         <div>
-          {user[0].avatar ? (
+          {user.avatar ? (
             <div
               className="avatar-container"
               onMouseEnter={() => handleAvatarHover(true)}
@@ -121,7 +121,7 @@ const UserPanel = ({ user, userId }) => {
             >
               <Image
                 src={changedAvatar}
-                alt={user[0].avatar}
+                alt={user.avatar}
                 roundedCircle
                 className="userAvatar my-4 user"
               />
@@ -172,14 +172,14 @@ const UserPanel = ({ user, userId }) => {
             </div>
           )}
           <div className="userInfo mx-3">
-            <p className="user">{user[0].role}</p>
+            <p className="user">{user.role}</p>
             <h3 className="text-center mb-3">
-              {user[0].name} {user[0].lastName}
+              {user.name} {user.lastName}
             </h3>
-            <h6>Edad: {user[0].age} años</h6>
+            <h6>Edad: {user.age} años</h6>
             {!editMail ? (
               <div className="d-flex justify-content-between">
-                <h6>Email: {user[0].email}</h6>
+                <h6>Email: {user.email}</h6>
                 <Button variant="outline" onClick={handleOpenEditMail}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -199,8 +199,8 @@ const UserPanel = ({ user, userId }) => {
                   <Form.Label>Editar Mail</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder={user[0].email}
-                    defaultValue={user[0].email}
+                    placeholder={user.email}
+                    defaultValue={user.email}
                     name="email"
                     {...register("email", {
                       required: true,
@@ -268,8 +268,8 @@ const UserPanel = ({ user, userId }) => {
               </Form>
             )}
 
-            <h6>{user[0].disabled === false && <p>Usuario activo</p>}</h6>
-            <h6>{user[0].disabled === true && <p>Usuario bloqueado</p>}</h6>
+            <h6>{user.disabled === false && <p>Usuario activo</p>}</h6>
+            <h6>{user.disabled === true && <p>Usuario bloqueado</p>}</h6>
           </div>
           <Button
             className="btnEdit btn-outline-success user"

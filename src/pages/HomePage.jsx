@@ -17,12 +17,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <div >
-
-         {/* <ComponentNavBar/> */}
-         <NavBar />
-
-      </div>
 
       <h1 className='tituloMain text-center'>Bienvenido a Curva del sabor!</h1>
 
