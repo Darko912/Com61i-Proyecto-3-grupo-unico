@@ -9,7 +9,6 @@ import Cardgrouprating from '../components/RatingCards/ratingCard';
 import Secciondeservicios from '../components/servicesCards/servicesCard';
 import ComponentNavBar from '../components/Navbar/ComponentNavBar';
 import ComponentFooter from '../components/Footer/ComponentFooter';
-import ComponentNavbar2 from '../components/NavBar2/ComponentNavbar2';
 
 const HomePage = () => {
   
@@ -49,9 +48,9 @@ const HomePage = () => {
 
       <div className='tituloCardsSecundarias container'>
 
-        <h2 className='letrasMain text-center'>Nuestro Servicio Incluye</h2>
-
       </div>
+
+      <h2 className='letrasMain text-center'>Nuestro Servicio Incluye</h2>
       
       <Secciondeservicios/>
 
