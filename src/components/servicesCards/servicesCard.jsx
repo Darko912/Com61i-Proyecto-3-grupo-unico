@@ -30,7 +30,7 @@ const Secciondeservicios = () => {
     <div className=" container">
       <div className="containerCardsServices row">
         {services.map((service, index) => (
-          <div key={index} className="col-md-4 m-md-5">
+          <div key={index} className="CardsServices col-md-4 m-md-5">
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={service.image} className="card-image" />
               <Card.Body>

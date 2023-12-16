@@ -1,4 +1,6 @@
 .carouselContainer {
     margin: 20px;
   }
-  
+  .carouselMain {
+    width: 100%;
+  }

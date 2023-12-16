@@ -4,11 +4,11 @@ import "../carousel/carousel.css"
 
 const CarouselComponent = () => {
   return (
-    <Carousel>
+    <Carousel className='carouselMain'>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://picsum.photos/800/400?random=1"
+          src="src\img\ImgMainPage\carruselImg.jpg"
           alt="First slide"
         />
       </Carousel.Item>

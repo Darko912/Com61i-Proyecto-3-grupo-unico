@@ -7,6 +7,8 @@ import { AuthContext } from "../context/AuthContext";
 import './styles/login.css';
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import ComponentFooter from "../components/Footer/ComponentFooter";
+import ComponentNavBar from "../components/Navbar/ComponentNavBar"
 
 
 const Login = () => {
@@ -50,8 +52,10 @@ const Login = () => {
 
   return (
     <>
+    <ComponentNavBar/>
+
+      <div className="containerLogin container">
       <h2 className="text-center my-3">LOGIN</h2>
-      <div className="container">
         <div className="row justify-content-center">
           <div className="col-8">
             <form onSubmit={handleSubmit}>
@@ -104,6 +108,9 @@ const Login = () => {
         </Link>
         </button>
       </div>
+
+      <ComponentFooter/>
+
     </>
   );
 };
