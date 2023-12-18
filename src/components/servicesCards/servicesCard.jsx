@@ -27,22 +27,17 @@ const Secciondeservicios = () => {
   ];
 
   return (
-    <div className=" container">
-      <div className="containerCardsServices row">
-        {services.map((service, index) => (
-          <div key={index} className="CardsServices col-md-4 m-md-5">
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={service.image} className="card-image" />
-              <Card.Body>
-                <Card.Title>{service.title}</Card.Title>
-                <Card.Text>{service.description}</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
-    </div>
+    {services.map((service, index) => (
+    <figure>
+      <img src="https://picsum.photos/id/287/250/300" alt="" />
+      <figcaption>
+        ${service}
+      </figcaption>
+    </figure>
+  ))}
   );
 };
 
 export default Secciondeservicios;
+
+//{services.map((service, index) => (
