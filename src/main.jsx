@@ -12,6 +12,7 @@ import Login from './users/Login.jsx';
 import { SnackbarProvider } from 'notistack';
 import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
 import NavBar from './components/Navbar/NavBar.jsx';
+import ComponentFooter from './components/Footer/ComponentFooter.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

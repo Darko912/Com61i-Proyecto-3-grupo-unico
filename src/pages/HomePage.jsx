@@ -7,10 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselComponent from '../components/carousel/carousel';
 import Cardgrouprating from '../components/RatingCards/ratingCard';
 import Secciondeservicios from '../components/servicesCards/servicesCard';
-import ComponentNavBar from '../components/Navbar/ComponentNavBar';
-import ComponentFooter from '../components/Footer/ComponentFooter';
-import ComponentNavbar2 from '../components/NavBar2/ComponentNavbar2';
-import NavBar from '../components/Navbar/NavBar';
 
 const HomePage = () => {
   
