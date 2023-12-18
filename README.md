@@ -13,6 +13,8 @@
 
  6:Lista de tipos posibles de menu's
 
+ ## Cuidado!
+
 :warning:
  El proyecto todavia sigue en desarollo! todo esta sujeto a cambios!
 
