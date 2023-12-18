@@ -4,3 +4,22 @@
     align-items: center;
     padding-top: 30px;
 }
+.cardStyleServices{
+    border: 20px;
+    border-radius: 30px;
+    background-color: #DEF4C6;
+    opacity: 0.9;
+    text-align: center;
+    font-family: 'Kalnia', serif;
+
+}
+.cardStyleServices:hover::before{
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+}
+.cardStyleServices:hover{
+  box-shadow: 0 0 100px #ffee10;
+}
+.CardServiceImage{
+    border-radius: 30px;
+}
