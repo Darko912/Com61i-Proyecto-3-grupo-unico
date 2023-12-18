@@ -11,15 +11,14 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import Login from './users/Login.jsx';
 import { SnackbarProvider } from 'notistack';
 import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
-import ComponentNavBar from './components/Navbar/ComponentNavBar.jsx';
-import ComponentFooter from "./components/Footer/ComponentFooter.jsx";
+import NavBar from './components/Navbar/NavBar.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <SnackbarProvider maxSnack={3} autoHideDuration={2000} >
         <BrowserRouter>
-        <ComponentNavBar />
+        <NavBar />
           <Routes>
             <Route path='/' element={<HomePage/>}/>
             <Route path='*' element={<ErrorPage/>}/>
