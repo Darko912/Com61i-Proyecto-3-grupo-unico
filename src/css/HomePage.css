@@ -38,8 +38,12 @@ body::-webkit-scrollbar-thumb {
 /*===== FIN DE SCROLL PERSONALIZADO =====*/
 
 .cardsMain{
-  background-color: #B1CF5F;
-  border-radius: 20px;
+  border: 20px;
+  border-radius: 30px;
+  background-color: rgba(216, 67, 67, 0.959);
+  opacity: 0.9;
+  text-align: center;
+  font-family: 'Kalnia', serif;
 }
 .Center{
   display: flex;
@@ -47,9 +51,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .imgCards{
-  width: 100%;
-  height: 200px;
-  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
 }
 .botonCardMain{
   background-color: #1B512D;
@@ -57,11 +62,11 @@ body::-webkit-scrollbar-thumb {
   transition: all 0.5s ease-in-out;
 }
 .botonCardMain:hover{
-  background-color: black;
   transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
 }
 .cardsMain:hover{
-  box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+  box-shadow: 0 0 100px #ffee10;
 }
 .cardsMain:hover::before,
 .cardsMain:hover::after {

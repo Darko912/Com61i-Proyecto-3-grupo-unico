@@ -65,7 +65,9 @@ const CustomCard = () => {
               <Card.Img variant="top" src={product.icon} className="imgCards card-image" />
               <Card.Body>
                 <Card.Title>{product.tittle}</Card.Title>
+                <hr />
                 <Card.Text>{product.description}</Card.Text>
+                <hr />
                 <Card.Text>${product.price}</Card.Text>
                 <Button className='botonCardMain' onClick={() => handleCardClick(product.title)}>
                   Añadir al Carrito
