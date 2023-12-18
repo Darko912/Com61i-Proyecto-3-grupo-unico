@@ -64,7 +64,7 @@ const NavBar = () => {
       >
         <Container>
           <Link to="/">
-            <Navbar.Brand>Curva del Sabor</Navbar.Brand>
+            <Navbar.Brand className='text-white'>Curva del Sabor</Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav d-flex" />
           <Navbar.Collapse id="basic-navbar-nav">

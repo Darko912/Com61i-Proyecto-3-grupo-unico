@@ -50,9 +50,9 @@ const Login = () => {
 
   return (
     <>
-
+<hr />
       <div className="containerLogin container">
-      <h2 className="text-center my-3">LOGIN</h2>
+      <h2 className="text-center">LOGIN</h2>
         <div className="row justify-content-center">
           <div className="col-8">
             <form onSubmit={handleSubmit}>
@@ -94,7 +94,7 @@ const Login = () => {
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                LogIn
+                Loguearse
               </button>
             </form>
           </div>

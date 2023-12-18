@@ -31,7 +31,7 @@ const Secciondeservicios = () => {
     <div className=" container">
       <div className="containerCardsServices row">
         {services.map((service, index) => (
-          <div key={index} className="CardsServices col-md-4 m-md-5">
+          <div key={index} className="Center col-md-6 col-lg-3 mb-3">
             <Card className='cardStyleServices' style={{ width: '18rem' }}>
               <Card.Img variant="top" src={service.image} className="card-image CardServiceImage" />
               <Card.Body>
