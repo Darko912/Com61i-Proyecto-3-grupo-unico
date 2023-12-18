@@ -9,7 +9,7 @@ const SobreNosotros = () => {
     <div>
 
 
-      <div className='row justify-content-center'>
+      <div className='row justify-content-center vh-100'>
 
         <div className='bodyCards col-xs-12 col-md-6 col-lg-3'>
 
