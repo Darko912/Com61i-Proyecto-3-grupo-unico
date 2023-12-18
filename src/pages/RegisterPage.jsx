@@ -98,6 +98,7 @@ const RegisterPage = () => {
               )}
               <div id="emailHelp" className="form-text"></div>
             </div>
+            <hr />
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Nombre
@@ -129,6 +130,7 @@ const RegisterPage = () => {
                 <p className="alertas">{messages.namePatternError}</p>
               )}
             </div>
+            <hr />
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Apellido
@@ -160,6 +162,7 @@ const RegisterPage = () => {
                 <p className="alertas">{messages.lastNamePatternError}</p>
               )}
             </div>
+            <hr />
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Edad
@@ -194,6 +197,7 @@ const RegisterPage = () => {
                 <p className="alertas">{messages.agePatternError}</p>
               )}
             </div>
+            <hr />
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Contraseña
@@ -224,6 +228,7 @@ const RegisterPage = () => {
                 <p className="alertas">{messages.pwPatternError}</p>
               )}
             </div>
+            <hr />
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Repetir contraseña
@@ -242,7 +247,7 @@ const RegisterPage = () => {
                 onChange={handleChange}
               />
             </div>
-
+            <hr />
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
