@@ -6,38 +6,45 @@ const Secciondeservicios = () => {
   const services = [
     {
       title: 'Servicio Rapido a Deliveries',
-      description: 'Description for Service 1',
-      image: 'https://picsum.photos/id/1018/200/300',
+      description: 'Delivery a Domicilio Comodidad en tus manos. Ordena con facilidad, recibe en casa. ¡Haz tu pedido hoy!',
+      image: 'data:image/png;base64,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',
     },
     {
       title: 'Staff siempre activo para tomar mesas',
-      description: 'Description for Service 2',
-      image: 'https://picsum.photos/id/1020/200/300',
+      description: 'Espacio exclusivo. Servicio personalizado. Momentos memorables en nuestro bar.',
+      image: 'https://i.pinimg.com/236x/7a/ae/3b/7aae3bcb24338b123b4c0805ee20da89.jpg',
     },
     {
       title: 'Servicio impecables, limpieza estricta',
-      description: 'Description for Service 3',
-      image: 'https://picsum.photos/id/1035/200/300', 
+      description: 'Profesionalismo que brilla. Espacios impecables. Nuestro servicio de limpieza, tu tranquilidad.',
+      image: 'https://img.freepik.com/vector-gratis/logotipo-servicio-limpieza-dibujado-mano_52683-78852.jpg', 
     },
     {
       title: 'Gente',
-      description: 'Description for Service 4',
-      image: 'https://picsum.photos/id/1035/200/300', 
+      description: 'Clientes diversos, ambiente animado. Un lugar donde las historias se entrelazan. Un Hermoso lugar',
+      image: 'data:image/png;base64,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', 
     },
+
   ];
 
   return (
-    {services.map((service, index) => (
-    <figure>
-      <img src="https://picsum.photos/id/287/250/300" alt="" />
-      <figcaption>
-        ${service}
-      </figcaption>
-    </figure>
-  ))}
+    <div className=" container">
+      <div className="containerCardsServices row">
+        {services.map((service, index) => (
+          <div key={index} className="CardsServices col-md-4 m-md-5">
+            <Card className='cardStyleServices' style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={service.image} className="card-image CardServiceImage" />
+              <Card.Body>
+                <Card.Title>{service.title}</Card.Title>
+                <hr />
+                <Card.Text>{service.description}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
 export default Secciondeservicios;
-
-//{services.map((service, index) => (
