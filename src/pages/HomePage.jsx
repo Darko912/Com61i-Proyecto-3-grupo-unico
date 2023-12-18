@@ -48,6 +48,8 @@ const HomePage = () => {
       </div>
 
       <h2 className='letrasMain text-center'>Nuestro Servicio Incluye</h2>
+
+      <hr />
       
       <Secciondeservicios/>
 
