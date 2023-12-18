@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import CustomCard from '../components/cardMenu/card'; 
 import Cards from "../components/cardMenu/cardData";
 import "../css/HomePage.css"
@@ -7,8 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CarouselComponent from '../components/carousel/carousel';
 import Cardgrouprating from '../components/RatingCards/ratingCard';
 import Secciondeservicios from '../components/servicesCards/servicesCard';
-import ComponentNavBar from '../components/Navbar/ComponentNavBar';
-import ComponentFooter from '../components/Footer/ComponentFooter';
+
 
 const HomePage = () => {
   
@@ -17,7 +16,6 @@ const HomePage = () => {
     <div>
       <div >
 
-         <ComponentNavBar/>
 
       </div>
 
@@ -56,7 +54,6 @@ const HomePage = () => {
 
       <div>
 
-         <ComponentFooter/>
 
       </div>
     </div>
