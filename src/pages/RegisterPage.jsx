@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { alertSuccess, alertError } from "../utils/customAlerts";
 import { messages } from "../utils/messages";
@@ -63,7 +62,7 @@ const RegisterPage = () => {
   console.log(userData);
 
   return (
-    <div className="container">
+    <div className="container vh-100">
       <div className="row justify-content-center">
         <div className="col-8">
           <Form onSubmit={handleSubmit(onSend)}>
