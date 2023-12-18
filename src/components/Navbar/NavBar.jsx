@@ -64,7 +64,7 @@ const NavBar = () => {
       >
         <Container>
           <Link to="/">
-            <Navbar.Brand>Comidita</Navbar.Brand>
+            <Navbar.Brand>Curva del Sabor</Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav d-flex" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -80,18 +80,20 @@ const NavBar = () => {
                   Contacto
                 </Link>
               </Nav.Link>
-              <Nav.Link>
-                <Link className="underline nav-link" to="/register">
-                  Registrarse
-                </Link>
-              </Nav.Link>
+              {!isLogged && (
+               <Nav.Link>
+               <Link className="underline nav-link" to="/register">
+                Registrarse
+               </Link>
+               </Nav.Link>
+              )}
 
-              {actualUser?.role !== "client" && (
-                <Nav.Link>
-                  <Link className="underline nav-link" to="/admin">
-                    Admin panel
-                  </Link>
-                </Nav.Link>
+              {isLogged && actualUser?.role === "admin" && (
+               <Nav.Link>
+               <Link className="underline nav-link" to="/admin">
+               Admin Panel
+               </Link>
+               </Nav.Link>
               )}
 
               {isLogged ? (

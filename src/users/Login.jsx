@@ -7,7 +7,6 @@ import { AuthContext } from "../context/AuthContext";
 import './styles/login.css';
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import ComponentFooter from "../components/Footer/ComponentFooter";
 import ComponentNavBar from "../components/Navbar/ComponentNavBar"
 
 
@@ -52,7 +51,6 @@ const Login = () => {
 
   return (
     <>
-    <ComponentNavBar/>
 
       <div className="containerLogin container">
       <h2 className="text-center my-3">LOGIN</h2>
@@ -102,14 +100,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <button>
-        <Link to={'/admin'}>
-            Admin
-        </Link>
-        </button>
       </div>
-
-      <ComponentFooter/>
 
     </>
   );

@@ -2,15 +2,12 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../css/SobreNosotrosPage.css'
-import ComponentNavbar from '../components/Navbar/ComponentNavBar'
-import ComponentFooter from '../components/Footer/ComponentFooter'
 import { FaWhatsapp, FaInstagram, FaFacebook, FaLocationArrow, FaUtensils, FaObjectGroup, FaObjectUngroup, FaLayerGroup, FaGit, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const SobreNosotros = () => {
   return (
     <div>
 
-      <ComponentNavbar/>
 
       <div className='row justify-content-center'>
 
@@ -133,7 +130,6 @@ const SobreNosotros = () => {
 
         </div>
         
-        <ComponentFooter/>
         
       </div>
 
