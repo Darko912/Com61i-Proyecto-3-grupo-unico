@@ -13,7 +13,7 @@
 
  6:Lista de tipos posibles de menu's
 
- ## Danger
+:warning:
  El proyecto todavia sigue en desarollo! todo esta sujeto a cambios!
 
  ## 😎Unirse😎
