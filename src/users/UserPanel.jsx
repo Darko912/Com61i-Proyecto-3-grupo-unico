@@ -149,7 +149,7 @@ const UserPanel = ({ user, userId }) => {
               onMouseLeave={() => handleAvatarHover(false)}
             >
               <Image
-                src="././img/noAvatar.jpg"
+                src="../noAvatar.jpg"
                 alt="No avatar"
                 roundedCircle
                 className="userAvatar my-4 user"

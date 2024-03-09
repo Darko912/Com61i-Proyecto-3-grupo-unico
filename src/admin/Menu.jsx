@@ -52,11 +52,6 @@ const Panel = ({setPanel}) => {
           </div>
         </div>
       </div>
-      <div className="container-fluid mb-5">
-        <Col className="panel-col">
-          <p>useState para setPanel</p>
-        </Col>
-      </div>
     </>
   );
 };

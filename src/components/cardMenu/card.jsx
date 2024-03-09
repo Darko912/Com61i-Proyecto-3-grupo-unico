@@ -7,15 +7,21 @@ import { AuthContext } from '../../context/AuthContext';
 const CustomCard = () => {
   const [spotlightProducts, setSpotlightProducts] = useState([]);
   const [token, setToken] = useState('');
-
+  const [cart, setCart] = useState([]);
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
+    // Load cart data from local storage when the component mounts
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+
     const fetchSpotlightProducts = async () => {
       try {
         const storedToken = localStorage.getItem('token');
         setToken(storedToken);
-        const response = await axiosClient.get('/api/products/get-products', {
+        const response = await axiosClient.get('/api/products//getSpotlightProducts', {
           headers: {
             'access-token': storedToken,
           },
@@ -29,7 +35,12 @@ const CustomCard = () => {
     fetchSpotlightProducts();
   }, []);
 
-  const handleCardClick = (title) => {
+  // Update local storage when the cart state changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (product) => {
     if (!authContext.state.isLogged) {
       Swal.fire({
         icon: 'error',
@@ -39,17 +50,11 @@ const CustomCard = () => {
       return;
     }
 
+    setCart([...cart, product]);
     Swal.fire({
-      title: 'Confirmar Orden',
-      text: `Quieres Ordenar ${title}?`,
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Si, ordernarlo!',
-      cancelButtonText: 'No, cancelar',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Orden Confirmada', 'Tu Orden fue confirmada.', 'success');
-      }
+      title: 'Producto Agregado',
+      text: 'El producto se ha agregado al carrito.',
+      icon: 'success',
     });
   };
 
@@ -60,7 +65,6 @@ const CustomCard = () => {
           <div key={index} className="Center col-md-6 col-lg-3 mb-3">
             <Card className='cardsMain'
               style={{ width: '18rem', margin: '10px', cursor: 'pointer' }}
-              onClick={() => handleCardClick(product.tittle)}
             >
               <Card.Img variant="top" src={product.icon} className="imgCards card-image" />
               <Card.Body>
@@ -69,7 +73,7 @@ const CustomCard = () => {
                 <Card.Text>{product.description}</Card.Text>
                 <hr />
                 <Card.Text>${product.price}</Card.Text>
-                <Button className='botonCardMain' onClick={() => handleCardClick(product.title)}>
+                <Button className='botonCardMain' onClick={() => handleAddToCart(product)}>
                   Añadir al Carrito
                 </Button>
               </Card.Body>
@@ -82,5 +86,3 @@ const CustomCard = () => {
 };
 
 export default CustomCard;
-
-
