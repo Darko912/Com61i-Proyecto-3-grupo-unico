@@ -21,7 +21,7 @@ const CustomCard = () => {
       try {
         const storedToken = localStorage.getItem('token');
         setToken(storedToken);
-        const response = await axiosClient.get('/api/products//getSpotlightProducts', {
+        const response = await axiosClient.get('/api/products/get-products', {
           headers: {
             'access-token': storedToken,
           },
