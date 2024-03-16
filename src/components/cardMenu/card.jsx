@@ -6,21 +6,12 @@ import { AuthContext } from '../../context/AuthContext';
 
 const CustomCard = () => {
   const [spotlightProducts, setSpotlightProducts] = useState([]);
-  const [token, setToken] = useState('');
-  const [cart, setCart] = useState([]);
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    // Load cart data from local storage when the component mounts
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-
     const fetchSpotlightProducts = async () => {
       try {
         const storedToken = localStorage.getItem('token');
-        setToken(storedToken);
         const response = await axiosClient.get('/api/products/get-products', {
           headers: {
             'access-token': storedToken,
@@ -35,27 +26,26 @@ const CustomCard = () => {
     fetchSpotlightProducts();
   }, []);
 
-  // Update local storage when the cart state changes
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+  const handleOrderRequest = async (product) => {
+    try {
+      const response = await axiosClient.post('/api/orders/create', {
+        userId: authContext.state.user._id, // Assuming the user ID is stored in the auth state
+        product: product,
+      });
 
-  const handleAddToCart = (product) => {
-    if (!authContext.state.isLogged) {
+      Swal.fire({
+        title: 'Pedido Enviado',
+        text: 'Tu pedido ha sido enviado al administrador.',
+        icon: 'success',
+      });
+    } catch (error) {
+      console.error('Error sending order request:', error.message);
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Debes iniciar sesión para agregar al carrito.',
+        text: 'Hubo un error al enviar tu pedido. Por favor, inténtalo de nuevo más tarde.',
       });
-      return;
     }
-
-    setCart([...cart, product]);
-    Swal.fire({
-      title: 'Producto Agregado',
-      text: 'El producto se ha agregado al carrito.',
-      icon: 'success',
-    });
   };
 
   return (
@@ -73,8 +63,8 @@ const CustomCard = () => {
                 <Card.Text>{product.description}</Card.Text>
                 <hr />
                 <Card.Text>${product.price}</Card.Text>
-                <Button className='botonCardMain' onClick={() => handleAddToCart(product)}>
-                  Añadir al Carrito
+                <Button className='botonCardMain' onClick={() => handleOrderRequest(product)}>
+                  Hacer Pedido
                 </Button>
               </Card.Body>
             </Card>
