@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import axiosClient from '../../config/axiosClient';
 import { AuthContext } from '../../context/AuthContext';
 
+
+
 const CustomCard = () => {
   const [spotlightProducts, setSpotlightProducts] = useState([]);
   const authContext = useContext(AuthContext);
@@ -26,27 +28,25 @@ const CustomCard = () => {
     fetchSpotlightProducts();
   }, []);
 
-  const handleOrderRequest = async (product) => {
-    try {
-      const response = await axiosClient.post('/api/orders/create', {
-        userId: authContext.state.user._id, // Assuming the user ID is stored in the auth state
-        product: product,
-      });
+  const { addToShoppingCart } = authContext;
 
+  const handleAddToCart = (product) => {
+    if (!authContext.state.isLogged) {
       Swal.fire({
-        title: 'Pedido Enviado',
-        text: 'Tu pedido ha sido enviado al administrador.',
-        icon: 'success',
+        title: 'Necesitas iniciar sesión',
+        text: 'Debes iniciar sesión para agregar productos al carrito de compras.',
+        icon: 'info',
       });
-    } catch (error) {
-      console.error('Error sending order request:', error.message);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Hubo un error al enviar tu pedido. Por favor, inténtalo de nuevo más tarde.',
-      });
+      return;
     }
+    addToShoppingCart(product); 
+    Swal.fire({
+      title: 'Producto agregado al carrito',
+      text: 'El producto se ha añadido correctamente a tu carrito de compras.',
+      icon: 'success',
+    });
   };
+  
 
   return (
     <div className="container text-center">
@@ -63,8 +63,8 @@ const CustomCard = () => {
                 <Card.Text>{product.description}</Card.Text>
                 <hr />
                 <Card.Text>${product.price}</Card.Text>
-                <Button className='botonCardMain' onClick={() => handleOrderRequest(product)}>
-                  Hacer Pedido
+                <Button className='botonCardMain' onClick={() => handleAddToCart(product)}>
+                  Agregar al carrito
                 </Button>
               </Card.Body>
             </Card>

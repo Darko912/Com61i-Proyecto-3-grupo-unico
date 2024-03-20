@@ -309,3 +309,29 @@ export const uploadAvatar = async (token, id, avatarForm) => {
     console.log(error);
   }
 };
+
+//API ORDERS---------------------------------------
+
+export const markOrderAsDelivered = async (orderId, token) => {
+  try {
+    return await axios.put(`${DBURL}/api/orders/${orderId}/delivered`, {}, {
+      headers: {
+        'access-token': token
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getQueueOrders = async (token) => {
+  try {
+    return await axios.get(`${DBURL}/api/orders/queue`, {
+      headers: {
+        'access-token': token
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

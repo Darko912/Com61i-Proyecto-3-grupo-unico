@@ -1,4 +1,4 @@
-export const AuthReducer = (state={}, action) => {
+export const AuthReducer = (state = { shoppingCart: [] }, action) => {
     switch (action.type) {
         case 'LOGIN': 
             return {
@@ -6,7 +6,8 @@ export const AuthReducer = (state={}, action) => {
                 user: action.payload.user,
                 isLogged: true,
                 isLoading: false,
-                errorMsg: ''
+                errorMsg: '',
+                shoppingCart: action.payload.shoppingCart || []
             }
             case 'LOGOUT': 
             return {
@@ -14,7 +15,8 @@ export const AuthReducer = (state={}, action) => {
                 user: null,
                 isLogged: false,
                 isLoading: false,
-                errorMsg: ''
+                errorMsg: '',
+                shoppingCart: []
             }
             case 'ERROR': 
             return {
@@ -24,6 +26,16 @@ export const AuthReducer = (state={}, action) => {
                 isLoading: false,
                 errorMsg: action.payload.errorMsg
             }
+            case 'ADD_TO_CART':
+            return {
+                ...state,
+                shoppingCart: [...state.shoppingCart, action.payload]
+                };
+            case 'REMOVE_FROM_CART':
+            return {
+                ...state,
+                shoppingCart: state.shoppingCart.filter((item, index) => index !== action.payload)
+            };
             
         default:
             return state;

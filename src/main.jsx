@@ -13,6 +13,7 @@ import { SnackbarProvider } from 'notistack';
 import SobreNosotrosPage from './pages/SobreNosotrosPage.jsx';
 import NavBar from './components/Navbar/NavBar.jsx';
 import ComponentFooter from './components/Footer/ComponentFooter.jsx';
+import { OrdersPage } from './pages/OrdersPage.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/register' element={<RegisterPage/>}/>
             <Route path='/admin' element={<Admin/>}/>
             <Route path='/aboutUs' element={<SobreNosotrosPage/>}/>
+            <Route path="/Carta" element={<OrdersPage/>}/>
           </Routes>
         </BrowserRouter>
       </SnackbarProvider> 

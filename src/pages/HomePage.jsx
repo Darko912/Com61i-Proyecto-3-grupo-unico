@@ -22,7 +22,6 @@ const HomePage = () => {
 
       <hr/>
       
-      <CustomCard cards={Cards} />
 
       <h1 className="tituloMain text-center">Disfrute de su comida en el lugar mas Elegante de la Argentina</h1>
 

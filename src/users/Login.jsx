@@ -32,12 +32,16 @@ const Login = () => {
         userData.email,
         userData.password
       );
-      alertSuccess(state.user?.msg, messages.logSuccess, null );
+      if (response.success) {
+        alertSuccess(state.user?.msg, messages.logSuccess, null );
+      } else {
+        alertError (error.message || 'An error occurred during login. Please try again later.', 'Login Error');
+      }
     } catch (err) {
-        console.log(err);
-    //     alertError(`${err.response.data}`, "Error al iniciar sesión", () => {
-    //   });
-    }
+        console.log(error);
+         alertError(`${error.response.data}`, "Error al iniciar sesión", () => {
+      });
+    } 
   };
 
 

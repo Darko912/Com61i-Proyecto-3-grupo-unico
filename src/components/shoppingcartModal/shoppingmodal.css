@@ -1,0 +1,52 @@
+.shopping-cart {
+  max-width: 600px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+}
+
+h4 {
+  font-size: 1.5rem; /* Adjust the font size of the heading */
+  color: black;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust the spacing between items */
+  padding: 10px; /* Add padding for each item */
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  background-color: #333; /* Set background color to dark gray */
+}
+
+.image-container {
+  width: 80px; /* Adjust the width as needed */
+  height: 80px; /* Adjust the height as needed */
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  margin-right: 20px; /* Add some margin for spacing */
+}
+
+img {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.shopping-cart .item-details {
+  flex: 1; /* Allow the details to take remaining space */
+}
+
+ span {
+  margin-right: 10px; /* Adjust the spacing between text */
+}
+
+ button {
+  margin-left: auto; /* Push the button to the right */
+}
+
+.empty-shopping-cart {
+  color: black;
+}

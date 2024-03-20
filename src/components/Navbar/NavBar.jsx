@@ -12,6 +12,8 @@ import { useAuth } from '../../hooks/useAuth';
 import UserPanel from '../../users/UserPanel';
 import { Tooltip } from "react-tooltip";
 import { AuthContext } from '../../context/AuthContext';
+import ShoppingModal from '../shoppingcartModal/shoppingmodal';
+
 
 
 
@@ -44,6 +46,11 @@ const NavBar = () => {
   const {state, logOut} = useContext(AuthContext)
 
   const isLogged = state?.isLogged
+
+  const [showCartModal, setShowCartModal] = useState(false);
+
+  const handleCartModalOpen = () => setShowCartModal(true);
+  const handleCartModalClose = () => setShowCartModal(false);
 
   const [loginMod, setLoginMod] = useState(false);
 
@@ -95,19 +102,22 @@ const NavBar = () => {
                </Link>
                </Nav.Link>
               )}
-
               {isLogged ? (
-                <div className="user">
-                  <Nav.Link>
-                    <Link
-                      className="underline nav-link"
-                      to="/"
-                      onClick={() => logOut()}
-                    >
-                      LogOut
-                    </Link>
-                  </Nav.Link>
-                </div>
+              <Nav className="d-flex align-items-center">
+                <Nav.Link>
+                  <Link className="underline nav-link" to="/carta">
+                    Carta
+                  </Link>
+                </Nav.Link>
+                <Nav.Link onClick={handleCartModalOpen}>
+                  <span className="underline nav-link">Shopping Cart</span>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link className="underline nav-link" to="/" onClick={() => logOut()}>
+                    LogOut
+                  </Link>
+                </Nav.Link>
+              </Nav>
               ) : (
                 <Nav.Link>
                   <Link className="underline nav-link" onClick={handleOpenL}>
@@ -148,6 +158,21 @@ const NavBar = () => {
           </div>
         </Container>
       </Navbar>
+
+      <Modal show={showCartModal} onHide={handleCartModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className='shopping-cart-tittle'>Tu Carrito</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ShoppingModal />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCartModalClose}>
+            Cerrar
+          </Button>
+          {/* Additional actions like Checkout */}
+        </Modal.Footer>
+      </Modal>
 
       <Modal show={loginMod} onHide={handleCloseL}>
         <Login />

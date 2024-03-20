@@ -45,6 +45,11 @@ const Panel = ({setPanel}) => {
                     <Button onClick={() => setPanel(3)} variant="primary">
                       Añadir producto
                     </Button>
+                    <div className="row mb-2">
+                    <Button onClick={() => setPanel(4)} variant="danger">
+                      Todas las Ordenes
+                    </Button>
+                    </div>
                   </div>
                 </div>
               </Row>
