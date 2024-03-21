@@ -7,6 +7,7 @@ import axios from "axios";
 import { ageValidator, validationsFields } from "../utils/validations";
 import { Form } from "react-bootstrap";
 import './styles/register.css'
+import Swal from 'sweetalert2';
 
 
 const RegisterPage = () => {
@@ -40,9 +41,12 @@ const RegisterPage = () => {
         `${URL_BASE}${endPoints.register}`,
         userData
       );
-      alertSuccess(messages.regSuccess, `Bienvenido, ${data.name}!`, () => {
-        console.log(data);
-        return;
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: `Bienvenido, ${data.name}!`
+      }).then(() => {
+        window.location.reload(); // Refresh the page after successful registration
       });
     } catch (err) {
       alertError(`${err.response.data.error[0].msg}`, "Error", () => {
@@ -59,7 +63,6 @@ const RegisterPage = () => {
     });
   };
 
-  console.log(userData);
 
   return (
     <div className="container vh-100">
