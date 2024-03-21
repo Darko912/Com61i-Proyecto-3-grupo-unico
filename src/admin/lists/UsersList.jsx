@@ -206,7 +206,7 @@ const AllUsersDatatable = () => {
   return (
     <>
       <div>
-        <Col xl={12} xs={6} className="row">
+        <Col xl={12} xs={12} className="row">
           <div
             className="container my-2 text-center"
             justifyContent="flex-end"

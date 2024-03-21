@@ -74,13 +74,20 @@ const OrderDatatable = () => {
 
   return (
     <div>
-      <MUIDataTable
-        title={"Pedidos en cola"}
-        data={queueOrders}
-        columns={columns}
-        options={options}
-      />
-    </div>
+        <Col xl={12} xs={12} className="row">
+          <div
+            className="container my-2 text-center"
+            justifyContent="flex-end"
+          >
+            <MUIDataTable
+              title={"Usuarios"}
+              data={queueOrders}
+              columns={columns}
+              options={options}
+            />
+          </div>
+        </Col>
+      </div>
   );
 };
 

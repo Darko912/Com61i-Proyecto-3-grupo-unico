@@ -6,10 +6,13 @@ import { FaWhatsapp, FaInstagram, FaFacebook, FaLocationArrow, FaUtensils, FaObj
 
 const SobreNosotros = () => {
   return (
-    <div>
+    <div className='container-fluid min-vh-100'>
 
+     <h1 className='tituloMain text-center'>NUESTRO EQUIPO DE DESARROLLO</h1>
 
-      <div className='row justify-content-center vh-100'>
+      <hr />
+
+      <div className='row'>
 
         <div className='bodyCards col-xs-12 col-md-6 col-lg-3'>
 
