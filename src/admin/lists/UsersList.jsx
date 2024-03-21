@@ -17,8 +17,6 @@ const AllUsersDatatable = () => {
 
   const { token, state } = useContext(AuthContext);
 
-  console.log(state);
-
   const getUsers = async () => {
     try {
       if (token) {       

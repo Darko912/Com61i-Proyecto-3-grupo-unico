@@ -1,7 +1,8 @@
 export const endPoints = {
     login: '/api/login',
     register: '/api/users/create',
-    createProduct: '/api/products/create'
+    createProduct: '/api/products/create',
+    deleteproduct: "/api/products/delete"
   };
   
   export const productEndpoints = {
@@ -41,7 +42,7 @@ export const endPoints = {
     unOfferProd: "/api/products/unoffer-product",
     disableProd: "/api/products/disable-product",
     ableProd: "/api/products/able-product",
-    deleteProd: "/api/products/delete-product",
+    deleteProd: "/api/products/delete",
     prodOfferPrice: "/api/products/set-offer-price",
     editPrice: "/api/products/edit-price",
   

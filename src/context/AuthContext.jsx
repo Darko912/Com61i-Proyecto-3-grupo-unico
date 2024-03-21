@@ -35,6 +35,13 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+  const clearShoppingCart = () => {
+    dispatch({
+      type: 'CLEAR_SHOPPING_CART'
+    });
+  };
+
+
    useEffect(() => {
      window.localStorage.setItem('token', token)
    }, [token])
@@ -58,14 +65,18 @@ export const AuthProvider = ({ children }) => {
                  user: user.data,
                  shoppingCart: shoppingCart
              },
-         })
+         });
+
+         return user.data;
+         
        } catch (error) {
         dispatch({
             type: 'ERROR',
             payload: {
                 errorMsg: error.response.data
             }
-        })
+        });
+        throw error;
        }
        
     };
@@ -86,7 +97,7 @@ export const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{token, setToken, state, addToShoppingCart, removeFromShoppingCart, login, logOut}}>
+    <AuthContext.Provider value={{token, setToken, state, addToShoppingCart, removeFromShoppingCart, clearShoppingCart, login, logOut}}>
       {children}
     </AuthContext.Provider>
   )

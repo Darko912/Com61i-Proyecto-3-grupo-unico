@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import MUIDataTable from "mui-datatables";
 import { Button, Modal, Col } from "react-bootstrap";
-import { getQueueOrders, markOrderAsDelivered,} from "../../config/api"; // Import your API functions
+import { getQueueOrders, markOrderAsDelivered,} from "../../config/api";
 import "../styles/ordersStyle.css"
+import { useSnackbar } from 'notistack';
 
 const OrderDatatable = () => {
   const [queueOrders, setQueueOrders] = useState([]);
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     fetchQueueOrders();
@@ -23,11 +25,12 @@ const OrderDatatable = () => {
   const handleMarkAsDelivered = async (orderId) => {
     try {
       await markOrderAsDelivered(orderId);
-      // Remove the delivered order from the list
       const updatedOrders = queueOrders.filter((order) => order._id !== orderId);
       setQueueOrders(updatedOrders);
+      enqueueSnackbar('Pedido marcado como entregado', { variant: 'success' });
     } catch (error) {
       console.error("Error marking order as delivered:", error.message);
+      enqueueSnackbar('Error al marcar el pedido como entregado', { variant: 'error' });
     }
   };
 
@@ -67,8 +70,6 @@ const OrderDatatable = () => {
   ];
 
   const options = {
-    // Options for MUIDataTable
-    // You can customize pagination, sorting, etc. here
   };
 
   return (

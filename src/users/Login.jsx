@@ -7,6 +7,8 @@ import { AuthContext } from "../context/AuthContext";
 import './styles/login.css';
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Swal from "sweetalert2";
+
 
 
 const Login = () => {
@@ -25,24 +27,25 @@ const Login = () => {
     const {login, state} = useContext(AuthContext)
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try { 
-      login(
-        userData.email,
-        userData.password
-      );
-      if (response.success) {
-        alertSuccess(state.user?.msg, messages.logSuccess, null );
-      } else {
-        alertError (error.message || 'An error occurred during login. Please try again later.', 'Login Error');
-      }
-    } catch (err) {
-        console.log(error);
-         alertError(`${error.response.data}`, "Error al iniciar sesión", () => {
-      });
-    } 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try { 
+          const response = await login(
+              userData.email,
+              userData.password
+          );
+          if (response) {
+              alertSuccess(response.msg, messages.logSuccess, null);
+          } else {
+              alertError('Un error ocurrio, los servidores pueden estar caidos.', 'Error de Inicio de Sesion');
+          }
+      } catch (err) {
+          console.log(err);
+          alertError('Un error ocurrio! o tu email o contraseña son incorrectos!', 'Error de Inicio de Sesion');
+      } 
   };
+  
+  
 
 
   const handleChange = (e) => {

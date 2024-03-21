@@ -18,11 +18,6 @@ const Panel = ({setPanel}) => {
               <div className="user my-3 admin-container">
                 {actualUser && (
                   <div className="my-3">
-                    <img
-                      className="avatar"
-                      src={actualUser?.avatar}
-                      alt={actualUser?.avatar}
-                    />
                     <h1>{actualUser?.name}</h1>
                     <p>{actualUser?.role}</p>
                     <p>{actualUser?.email}</p>

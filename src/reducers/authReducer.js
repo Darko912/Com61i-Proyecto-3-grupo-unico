@@ -36,7 +36,12 @@ export const AuthReducer = (state = { shoppingCart: [] }, action) => {
                 ...state,
                 shoppingCart: state.shoppingCart.filter((item, index) => index !== action.payload)
             };
-            
+            case 'CLEAR_SHOPPING_CART':
+            return {
+                ...state,
+                shoppingCart: []
+            };
+
         default:
             return state;
     }

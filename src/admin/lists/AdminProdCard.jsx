@@ -2,7 +2,7 @@ import { Switch, Box, FormControlLabel } from '@mui/material';
 import React, { useState, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import { Card, Button, Container, Carousel, Form, Row, Col } from 'react-bootstrap'
-import { ableProduct, disableProduct, editProd, offerProd, spotlightProduct, unOfferProd, unSpotlightProduct } from '../../config/api';
+import { ableProduct, disableProduct, editProd, offerProd, spotlightProduct, unOfferProd, unSpotlightProduct, deleteProduct } from '../../config/api';
 import { useForm } from 'react-hook-form';
 import { validationsFields, isValidCategory } from '../../utils/validations';
 import { messages } from '../../utils/messages'
@@ -150,6 +150,42 @@ const AdminProdCard = ({ product, updateProductState}) => {
       }
     }
   }
+
+  const handleDeleteProduct = async () => {
+    // Display SweetAlert confirmation dialog
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await deleteProduct(token, product._id);
+          updateProductState(product._id);
+          enqueueSnackbar('Producto eliminado correctamente', { variant: 'success' });
+          Swal.fire({
+            title: 'Producto eliminado correctamente',
+            text: `el producto ${product.tittle} fue eliminado`,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Entiendo',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
+        } catch (error) {
+          console.error('Error deleting product:', error.message);
+          enqueueSnackbar('Error al eliminar el producto', { variant: 'error' });
+        }
+      }
+    });
+  };
 
 
   const handleProdStatus = async () => {
@@ -609,6 +645,15 @@ const AdminProdCard = ({ product, updateProductState}) => {
                               onClick={() => setEditProdCard(0)}
                             >
                               Cancelar
+                            </Button>
+                          </div>
+                          <div className="container">
+                            <Button
+                              className="container"
+                              variant="danger"
+                              onClick={handleDeleteProduct}
+                            >
+                              Eliminar Producto
                             </Button>
                           </div>
                           <div className="container">

@@ -5,16 +5,12 @@ import "./shoppingmodal.css"
 import Swal from 'sweetalert2';
 
 const ShoppingModal = () => {
-  const { state, removeFromShoppingCart } = useContext(AuthContext);
+  const { state, removeFromShoppingCart, clearShoppingCart } = useContext(AuthContext);
   const shoppingCart = state?.shoppingCart || [];
   const [loading, setLoading] = useState(false);
 
   const handleRemoveFromCart = (index) => {
     removeFromShoppingCart(index);
-  };
-
-  const clearShoppingCart = () => {
-    setShoppingCart([]);
   };
 
   const handleOrder = async () => {

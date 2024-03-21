@@ -125,6 +125,19 @@ export const editProd = async (token, id, prodData) => {
   }
 }
 
+export const deleteProduct = async (token, id) => {
+  try {
+    return await axios.delete(`${DBURL}${endPointAdmin.deleteProd}/${id}`, {
+      headers: {
+        'access-token': token,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error('Error deleting product');
+  }
+};
+
 export const offerProd = async (token, id) => {
   try {
     return await axios.patch(`${DBURL}${endPointAdmin.offerProd}/${id}`, {}, {
