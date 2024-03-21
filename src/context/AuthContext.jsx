@@ -88,6 +88,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({
         type: 'LOGOUT'
       })
+      window.location.href = "/";
     }
 
     useEffect(() => {

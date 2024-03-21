@@ -106,11 +106,11 @@ const NavBar = () => {
               <Nav className="d-flex align-items-center">
                 <Nav.Link>
                   <Link className="underline nav-link" to="/carta">
-                    Carta
+                    Menu
                   </Link>
                 </Nav.Link>
                 <Nav.Link onClick={handleCartModalOpen}>
-                  <span className="underline nav-link">Shopping Cart</span>
+                  <span className="underline nav-link">Carrito</span>
                 </Nav.Link>
                 <Nav.Link>
                   <Link className="underline nav-link" to="/" onClick={() => logOut()}>
